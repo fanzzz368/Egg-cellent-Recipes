@@ -27,10 +27,14 @@ def recipes_ingred():
 def suggested_recipes():
     return f'<h1>these are the top ten suggested recipes</h1>'
  
-@app.route('/customer_service_form')
+@app.route('/customer_service_form', methods = ['POST'])
 def cus_service_form():
-    return f'<h1> this is the customer service form</h1>'   
- 
+   username = request.form['username']
+   email = request.form['email']
+   phoneNum = request.form['phone']
+   description = request.form['description']
+   return f'<h1>{username}, your request has been submitted.</h1>' 
+
 @app.route('/signup', methods = ['POST'])
 def signup():
    first_name = request.form['first']
