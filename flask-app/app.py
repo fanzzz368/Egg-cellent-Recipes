@@ -6,6 +6,7 @@
 # that lives in src/__init__.py
 from src import create_app
 from flask import request
+from src import db
  
 # create the app object
 app = create_app()
@@ -29,6 +30,7 @@ def suggested_recipes():
  
 @app.route('/customer_service_form', methods = ['POST'])
 def cus_service_form():
+   cursor = db.get_db().cursor()
    username = request.form['username']
    email = request.form['email']
    phoneNum = request.form['phone']
@@ -37,12 +39,16 @@ def cus_service_form():
 
 @app.route('/signup', methods = ['POST'])
 def signup():
+   cursor = db.get_db().cursor()
    first_name = request.form['first']
    last_name = request.form['last']
    username = request.form['username']
    email = request.form['email']
    phoneNum = request.form['phone']
-   return f'<h1>Hello {first_name} {last_name}, your username is {username}, your email is {email}, and your phone number is {phoneNum}. Thanks for signing up for Egg-cellent Recipes!</h1>'
+   query = f'INSERT INTO user(username, email, employeeNum, firstName, lastName, phoneNum) VALUES(\"{username}\", \"{email}\", 3, \"{first_name}\", \"{last_name}\", \"{phoneNum}\")'
+   cursor.execute(query)
+   db.get_db().commit()
+   return f'<h1>You have successfully signed up for Egg-cellent Recipes!</h1>'
  
 @app.route('emp_profile')
 def emp_profile():
