@@ -112,7 +112,7 @@ CREATE TABLE recipe_instru (
 );
 
 CREATE TABLE help_requests (
-    ticketID Integer PRIMARY KEY,
+    ticketID Integer auto_increment PRIMARY KEY,
     employeeNum Integer UNIQUE,
     user_username VARCHAR(255) UNIQUE,
     user_phoneNum VARCHAR(255) UNIQUE,

@@ -35,6 +35,8 @@ def cus_service_form():
    email = request.form['email']
    phoneNum = request.form['phone']
    description = request.form['description']
+   query = f'INSERT INTO help_requests(user_username, user_phoneNum, user_email, help_needed) VALUES(\"{username}\", \"{phoneNum}\", \"{email}\", \"{description}\")'
+   cursor.execute(query)
    return f'<h1>{username}, your request has been submitted.</h1>' 
 
 @app.route('/signup', methods = ['POST'])
