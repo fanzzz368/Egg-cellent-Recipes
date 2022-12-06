@@ -53,10 +53,12 @@ def recipes_ingred():
     query = '''
     SELECT *
     FROM recipe r JOIN ingredient_rec ir on r.recipeId = ir.recipeNum
-    WHERE (SELECT COUNT(i.ingredientId)
+    WHERE (SELECT COUNT(i.ingredientId) as numMatches
             FROM ingredient_rec ir JOIN ingredient i on ir.ingredientNum = i.ingredientId
-            JOIN pantry p on i.pantryNum = p.pantryID
+            JOIN pantry_ingred pi on i.pantryNum = pi.pantryNum
+            JOIN pantry p on pi.pantryNum = p.pantryID
             WHERE i.ingredientId = ir.ingredientNum)
+    ORDER BY numMatches DESC
     '''
     cursor.execute(query)
     row_headers = [x[0] for x in cursor.description]

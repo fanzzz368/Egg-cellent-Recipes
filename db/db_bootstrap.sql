@@ -68,8 +68,6 @@ CREATE TABLE pantry (
     FOREIGN KEY (userNam) REFERENCES user(username) 
 );
 
--- pantry and ingredient in between table natural join every
-
 CREATE TABLE ingredient (
     ingredientID Integer PRIMARY KEY, 
     name VARCHAR(255) NOT NULL, 
