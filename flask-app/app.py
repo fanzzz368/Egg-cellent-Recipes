@@ -15,11 +15,6 @@ app = create_app()
 def homepage():
    return f'<h1>Welcome to Egg-cellent Recipes!</h1>'
 
-@app.route("/input_ingredients", methods = ['POST'])
-def input_ingredients():
-   ingredient = request.form['ingredient']
-   return f'<h1>{ingredient} added to pantry.</h1>'
-
 @app.route('/recipes_based_on_ingred')
 def recipes_ingred():
     return f'<h1>these are the recipes based on your available ingredients</h1'
