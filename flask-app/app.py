@@ -42,18 +42,6 @@ def signup():
    cursor.execute(query)
    db.get_db().commit()
    return f'<h1>You have successfully signed up for Egg-cellent Recipes!</h1>'
- 
-@app.route('/emp_profile')
-def emp_profile():
-    return f'<h1> this is employee profile page<h/1>'
- 
-@app.route('/chef_profile')
-def chef_profile():
-    return f'<h1> this is chef profile page</h1>'
- 
-@app.route('/add_recipes')
-def add_recipes():
-    return f'<h1> add recipes to the system</h1>'
    
 if __name__ == '__main__':
    # we want to run in debug mode (for hot reloading)

@@ -6,7 +6,7 @@ from src import db
 users = Blueprint('users', __name__)
 
 # Get user profile for user with particular username
-@users.route('/user/<username>', methods=['GET'])
+@users.route('/users/<username>', methods=['GET'])
 def get_user(username):
     cursor = db.get_db().cursor()
     cursor.execute('select * from user where username = {0}'.format(username))

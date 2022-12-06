@@ -5,10 +5,10 @@ from src import db
 chefs = Blueprint('chefs', __name__)
 #login, sign-in
 
-@chefs.route('/chef_profile/<userName>', methods=['GET'])
-def chef_profile(userName):
+@chefs.route('/chefs/<username>', methods=['GET'])
+def chef_profile(username):
     cursor = db.get_db().cursor()
-    cursor.execute('select * from chef where username = {0}'.format(userName))
+    cursor.execute('select * from chef where username = {0}'.format(username))
     row_headers = [x[0] for x in cursor.description]
     json_data = []
     theData = cursor.fetchall()
@@ -32,7 +32,7 @@ def chef_profile(userName):
 #     FOREIGN KEY (cuisineNum) REFERENCES cuisine(cuisineID),
 #     FOREIGN KEY (chefNam) REFERENCES chef(username)
 
-@chefs.route('/add_recipes', methods=['POST'])
+@chefs.route('/add_recipe', methods=['POST'])
 def chef_add_recipe():
     current_app.logger.info(request.form)
     cursor = db.get_db().cursor()
