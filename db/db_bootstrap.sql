@@ -68,12 +68,20 @@ CREATE TABLE pantry (
     FOREIGN KEY (userNam) REFERENCES user(username) 
 );
 
+-- pantry and ingredient in between table natural join every
+
 CREATE TABLE ingredient (
     ingredientID Integer PRIMARY KEY, 
     name VARCHAR(255) NOT NULL, 
-    quantity Integer, 
-    pantryNum Integer, 
-    FOREIGN KEY (pantryNum) REFERENCES pantry(pantryID)
+    quantity Integer
+);
+
+-- updated pantry and ingredient to be many to many relationship
+CREATE TABLE pantry_ingred (
+    pantryNum Integer UNIQUE,
+    ingredientNum Integer UNIQUE,
+    FOREIGN KEY (pantryNum) REFERENCES pantry(pantryID),
+    FOREIGN KEY (ingredientNum) REFERENCES ingredient(ingredientID)
 );
 
 CREATE TABLE instructions (
@@ -163,17 +171,67 @@ VALUES
     (2, 'Mandy', 'Kipling', 'customer service representative', 132, 'mandykipling@gmail.com'),
     (3, 'Paige', 'Loveman', 'customer service representative', 212, 'paigeloveman@gmail.com'),
     (4, 'Brian', 'Mul', 'customer service representative', 213, 'brianmul@gmail.com'),
-    (5, 'Emily', 'Flower', 'customer service representative', 212, 'emilyflower@gmail.com');
+    (5, 'Emily', 'Flower', 'customer service representative', 214, 'emilyflower@gmail.com')
+    (6, 'Shuai', 'Ge', 'customer service representative', 215, 'shuaige@gmail.com')
+    (7, 'Billy', 'Bob', 'customer service representative', 216, 'billybob@gmail.com'),
+    (8, 'Amanda', 'Liu', 'customer service representative', 217, 'amandaliu@gmail.com'),
+    (9, 'Lily', 'Zhu', 'customer service representative', 218, 'lilyzhu@gmail.com'),
+    (10, 'Jeff', 'Anderson', 'customer service representative', 219, 'jeffanderson@gmail.com'),
+    (11, 'Cory', 'White', 'customer service representative', 220, 'corywhite@gmail.com')
+    (12, 'Lucy', 'Armstrong', 'customer service representative', 221, 'lucyarmstrong@gmail.com')
+    (13, 'Harris', 'Batman', 'customer service representative', 222, 'harrisbatman@gmail.com'),
+    (14, 'Molly', 'Bear', 'customer service representative', 223, 'mollybear@gmail.com'),
+    (15, 'Peppa', 'Ping', 'customer service representative', 224, 'peppaping@gmail.com'),
+    (16, 'Ryan', 'Null', 'customer service representative', 225, 'ryannull@gmail.com'),
+    (17, 'Casey', 'Plant', 'customer service representative', 226, 'caseyplant@gmail.com')
+    (18, 'Henry', 'Young', 'customer service representative', 227, 'henryyoung@gmail.com')
+    (19, 'Harry', 'Old', 'customer service representative', 228, 'harryold@gmail.com'),
+    (20, 'Paul', 'Liu', 'customer service representative', 229, 'paulliu@gmail.com'),
+    (21, 'Vincent', 'Zhu', 'customer service representative', 230, 'vincentzhu@gmail.com'),
+    (22, 'Andrea', 'Lol', 'customer service representative', 231, 'andrealol@gmail.com'),
+    (23, 'Daniel', 'Xu', 'customer service representative', 232, 'danielxu@gmail.com')
+    (24, 'Brianna', 'Yolo', 'customer service representative', 233, 'briannayolo@gmail.com'
+    (25, 'Alice', 'Chu', 'customer service representative', 234, 'alicechu@gmail.com'),
+    (26, 'Frank', 'Darcy', 'customer service representative', 235, 'frankdarcy@gmail.com'),
+    (27, 'George', 'Mouse', 'customer service representative', 236, 'georgemousegmail.com'),
+    (28, 'Theo', 'Door', 'customer service representative', 237, 'theodoor@gmail.com'),
+    (29, 'Will', 'Bread', 'customer service representative', 238, 'willbread@gmail.com')
+    (30, 'John', 'Winterjacket', 'customer service representative', 239, 'johnwinterjacket@gmail.com');
+
 
 INSERT INTO user
     (username, email, employeeNum, firstName, lastName, phoneNum) 
 VALUES 
-    ('estack0','estack0@marriott.com',2,'Edgard','Stack', 9175023045),
-    ('awellstead1','awellstead1@dion.ne.jp',1, 'Adamo','Wellstead',9175021235),
-    ('bsollars2','bsollars2@123-reg.co.uk',1,'Blaire', 'Sollars', 9175023923), 
+    ('estack0','estack0@marriott.com',1,'Edgard','Stack', 9175023045),
+    ('awellstead1','awellstead1@dion.ne.jp',2, 'Adamo','Wellstead',9175021235),
+    ('bsollars2','bsollars2@123-reg.co.uk',3,'Blaire', 'Sollars', 9175023923), 
     ('rpickaver3','rpickaver3@arizona.edu',4,'Raviv', 'Pickaver', 9175021092),
-    ('rbernaldez4','rbernaldez4@wsj.com',3,'Riva','Bernaldez', 9175021274),
-    ('joeJoeyMulligan','joeJoeyMulligan@wsj.com',4,'Joe','Mulligan', 9175021937);
+    ('rbernaldez4','rbernaldez4@wsj.com',5,'Riva','Bernaldez', 9175021274),
+    ('joejoeymulligan','joejoeymulligan@wsj.com',6,'Joe','Mulligan', 9175021937)
+    ('fandadadayo','fzoom@gmail.com',7,'Fan','Zoom', 8603128888),
+    ('luvfoodz','yumfood8@yahoo.com',8, 'Jamie','Moon',9175021234),
+    ('pickleseater23','kelseyjo@gmail.com',9,'Kelsey', 'Jo', 3211409123), 
+    ('randomperson11','randyliu3@gmail.com',10,'Randy', 'Liu', 3459871023),
+    ('lizqueen','elizabethstraw99@gmail.com',11,'Elizabeth','Straw', 9175021774),
+    ('johnathon342','john342@wsj.com',12,'Johnathon','Miller', 9175022894)
+    ('emily88','iamemily88@marriott.com',13,'Emily','Stocks', 8609089123),
+    ('howardtower','howardeatsfood@gmail.com',14, 'Howard','Toward', 8609489123),
+    ('bennypenny','bpsoccer@gmail.com',15,'Ben', 'Peng', 9175023323), 
+    ('ketchup912','calebzhu@arizona.edu',16,'Caleb', 'Zhu', 6782349876),
+    ('kellywillis34','kwillis@wsj.com',17,'Kelly','Willis', 3409124738),
+    ('differentjoe','joesunny@wsj.com',18,'Joe','Sunny', 1327896712),
+    ('iloverain3','ibelieveinfate@gmail.com',19,'Winnie','Wheel', 9176023045),
+    ('iwanttocook13','cookandbakeguru@gmail.com',20, 'Sam','Wellington',9175025235),
+    ('badmintonpro34','iplaysports78@yahoo.com',21,'Jake', 'Spring', 9175223323), 
+    ('isleepandeat','enjoylife4@gmail.com',22,'Tim', 'Zhou', 6782349886),
+    ('cupcakes2023','youngkid49@gmail,com',23,'Lucy','Tree', 6782449886),
+    ('kruskalalgo99','ilovecs@yahoo.com',24,'Doug','Brow', 8607859993)
+    ('pollytriangle2','pollyyes@gmail.com',25,'Polly','Triangle', 5679760912),
+    ('itakenaps42','susanli3@gmail.com',26, 'Susan','Li',5679352789),
+    ('icanswim2','b.mondo@northeastern.edu',27,'Blaire', 'Mondo', 8574371354), 
+    ('holidayseasonyay','hollyku@northeastern.edu',28,'Holly', 'Ku', 6745986435),
+    ('user234','basicname45@yahoo.com',29,'Kevin','Lin', 9453781208),
+    ('user123456','iloveramennoodles@gmail.com',30,'Tiffany','Mulligan', 3854670834);
 
 INSERT INTO chef 
     (userName, firstName, lastName, email, employeeNum, phoneNum) 

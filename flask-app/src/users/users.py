@@ -46,6 +46,7 @@ def input_ingredients():
    return f'<h1>{ingredient} added to pantry.</h1>'
 
 # Suggested recipes based on what user has in pantry
+#match the ingredients that the user has entered with the ingredients in each recipe--> if same, return the recipe
 @users.route('/<username>/recipes_based_on_ingred', methods = ['GET'])
 def recipes_ingred():
     cursor = db.get_db().cursor()
