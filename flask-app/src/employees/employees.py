@@ -1,6 +1,7 @@
 from flask import Blueprint, request, jsonify, make_response
 import json
 from src import db
+from flask import request
 
 
 employees = Blueprint('employees', __name__)
@@ -19,3 +20,4 @@ def get_employee(employeeID):
     the_response.status_code = 200
     the_response.mimetype = 'application/json'
     return the_response
+
