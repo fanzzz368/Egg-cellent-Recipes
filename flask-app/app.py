@@ -14,10 +14,6 @@ app = create_app()
 @app.route('/')
 def homepage():
    return f'<h1>Welcome to Egg-cellent Recipes!</h1>'
-
-@app.route('/recipes_based_on_ingred')
-def recipes_ingred():
-    return f'<h1>these are the recipes based on your available ingredients</h1'
  
 @app.route('/suggested_recipes')
 def suggested_recipes():
