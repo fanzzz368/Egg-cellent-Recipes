@@ -43,7 +43,7 @@ def signup():
    db.get_db().commit()
    return f'<h1>You have successfully signed up for Egg-cellent Recipes!</h1>'
  
-@app.route('emp_profile')
+@app.route('/emp_profile')
 def emp_profile():
     return f'<h1> this is employee profile page<h/1>'
  
