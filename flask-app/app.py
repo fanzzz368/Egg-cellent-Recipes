@@ -55,10 +55,6 @@ def emp_profile():
 def chef_profile():
     return f'<h1> this is chef profile page</h1>'
  
-@app.route('/user')
-def user_profile():
-    return f'<h1> this is user profile page</h1>'
- 
 @app.route('/add_recipes')
 def add_recipes():
     return f'<h1> add recipes to the system</h1>'
