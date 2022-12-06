@@ -128,7 +128,33 @@ VALUES
     ('American', 103),
     ('Italian', 132),        
     ('Chinese', 212),
-    ('Japanese', 213);
+    ('Japanese', 213)
+    ('Caribbean', 214)
+    ('Vietnamese', 215)
+    ('Korean', 216)
+    ('German', 217)
+    ('Indian', 218)
+    ('Greek', 219)
+    ('French', 220)
+    ('Moroccan', 221)
+    ('Turkish', 222)
+    ('Thai', 223)
+    ('Lebanese', 224)
+    ('Nigerian', 225)
+    ('Malaysian', 226)
+    ('Filipino', 227)
+    ('Pakistani', 228)
+    ('Egyptian', 229)
+    ('Zimbian', 230)
+    ('Spanish', 231)
+    ('Australian', 232)
+    ('Scottish', 233)
+    ('Mexican', 234)
+    ('Indonesian', 235)
+    ('Brazilian', 236)
+    ('Russian', 237)
+    ('Peruvian', 238)
+    ('Others', 239);
 
 INSERT INTO employee 
     (employeeID, firstName, lastName, title, cuisineNum, email)
