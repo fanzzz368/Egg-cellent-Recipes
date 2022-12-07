@@ -187,7 +187,7 @@ VALUES
     (21, 'Vincent', 'Zhu', 'customer service representative', 230, 'vincentzhu@gmail.com'),
     (22, 'Andrea', 'Lol', 'customer service representative', 231, 'andrealol@gmail.com'),
     (23, 'Daniel', 'Xu', 'customer service representative', 232, 'danielxu@gmail.com')
-    (24, 'Brianna', 'Yolo', 'customer service representative', 233, 'briannayolo@gmail.com'
+    (24, 'Brianna', 'Yolo', 'customer service representative', 233, 'briannayolo@gmail.com')
     (25, 'Alice', 'Chu', 'customer service representative', 234, 'alicechu@gmail.com'),
     (26, 'Frank', 'Darcy', 'customer service representative', 235, 'frankdarcy@gmail.com'),
     (27, 'George', 'Mouse', 'customer service representative', 236, 'georgemousegmail.com'),
@@ -248,7 +248,7 @@ VALUES
     ('bmcclelland8', 'Binni', 'McClelland', 'bmcclelland8@xing.com', 13, 2957568861),
     ('vkhidr9', 'Vilma', 'Khidr', 'vkhidr9@soup.io', 14, 4237208397),
     ('dmassiea', 'Deidre', 'Massie', 'dmassiea@loc.gov', 15, 1039888490),
-    'ichavezb', 'Isadore', 'Chavez', 'ichavezb@senate.gov', 16, 3905899009),
+    ('ichavezb', 'Isadore', 'Chavez', 'ichavezb@senate.gov', 16, 3905899009),
     ('ewiganc', 'Evan', 'Wigan', 'ewiganc@goo.gl', 17, 2372310517),
     ('srycroftd', 'Stanleigh', 'Rycroft', 'srycroftd@list-manage.com', 18, 6324420701),
     ('tdodse', 'Thurston', 'Dods', 'tdodse@slashdot.org', 19, 1122927758),
