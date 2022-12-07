@@ -267,9 +267,10 @@ VALUES
 INSERT INTO recipe
     (recipeId, name, numViews, numLikes, cuisineNum, servings, prepTime, cookTime, chefNam)
 VALUES 
-    (1, 'cheeseburger', 0, 0, 103, 1, '2 minutes', '5 minutes', 'chef12pas'),
+    (1, 'baked potato', 0, 0, 103, 1, '2 minutes', '5 minutes', 'chef12pas'),
     (2, 'spaghetti', 6, 6, 132, 5, '5 minutes', '15 minutes', 'ilovecheesechef'),
     (3, 'yogurt parfait', 100, 0, 103, 1, '5 minutes', '0 minutes','souflecheface');
+    (4, )
 
 INSERT INTO pantry 
     (pantryID, userNam)
