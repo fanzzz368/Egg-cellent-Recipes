@@ -11,7 +11,7 @@ CREATE TABLE cuisine (
 );
 
 CREATE TABLE employee (
-    employeeID Integer PRIMARY KEY, 
+    employeeID Integer auto_increment PRIMARY KEY, 
     firstName VARCHAR(255) NOT NULL, 
     lastName VARCHAR(255) NOT NULL, 
     title VARCHAR(255) NOT NULL, 
@@ -49,7 +49,7 @@ CREATE TABLE chef (
 );
 
 CREATE TABLE recipe (
-    recipeId Integer PRIMARY KEY,
+    recipeId Integer auto_increment PRIMARY KEY,
     name TEXT NOT NULL, 
     numViews Integer, 
     numLikes Integer, 
@@ -63,13 +63,13 @@ CREATE TABLE recipe (
 ); 
 
 CREATE TABLE pantry (
-    pantryID Integer PRIMARY KEY,
+    pantryID Integer auto_increment PRIMARY KEY,
     userNam VARCHAR(255) NOT NULL, 
     FOREIGN KEY (userNam) REFERENCES user(username) 
 );
 
 CREATE TABLE ingredient (
-    ingredientID Integer PRIMARY KEY, 
+    ingredientID Integer auto_increment PRIMARY KEY, 
     name VARCHAR(255) NOT NULL, 
     quantity Integer
 );
@@ -83,7 +83,7 @@ CREATE TABLE pantry_ingred (
 );
 
 CREATE TABLE instructions (
-    instruID Integer PRIMARY KEY, 
+    instruID Integer auto_increment PRIMARY KEY, 
     steps VARCHAR(255) NOT NULL, 
     recipeNum Integer NOT NULL, 
     FOREIGN KEY (recipeNum) REFERENCES recipe(recipeId)
