@@ -268,8 +268,19 @@ INSERT INTO recipe
 VALUES 
     (1, 'baked potato', 0, 0, 103, 1, '2 minutes', '5 minutes', 'chef12pas'),
     (2, 'spaghetti', 6, 6, 132, 5, '5 minutes', '15 minutes', 'ilovecheesechef'),
-    (3, 'yogurt parfait', 100, 0, 103, 1, '5 minutes', '0 minutes','souflecheface');
-    (4, )
+    (3, 'yogurt parfait', 100, 0, 103, 1, '5 minutes', '0 minutes','souflecheface'),
+    (4, 'tasty onion chicken', 12, 6, 103, 4, '10 minutes', '25 minutes','vkhidr9'), 
+    (5, 'one pot mac and cheese', 1000, 5, 1, 10, '5 minutes', '30 minutes', 'kcarlop'),
+    (6, 'shrimp pasta alfredo', 4929, 2109, 132, 4, '10 minutes', '15 minutes', 'sbogo'), 
+    (7, 'mashed plantains with fried eggs', 28991, 2124, 239, 2, '15 minutes', '15 minutes', 'sburletonl'),
+    (8, 'okonomiyaki pancakes with bonito flakes', 219, 133, 213, 1, '15 minutes', '15 minutes','vkhidr9'),
+    (9, 'pigs in a blanket with sauerkraut and mustard', 281, 29, 217, 4, '20 minutes', '25 minutes', 'glotonh'), 
+    (10, 'super simple overnight porridge', 3298, 3001, 215, 1, '10 minutes', '5 minutes', 'ichavezb'), 
+    (11, 'salmon teriyaki', 199, 129, 213, 2, '10 minutes', '15 minutes', 'dmassiea'),
+    (12, 'paneer butter masala', 208, 100, 218, 4, '10 minutes', '15 minutes', 'bmcclelland8'),
+    (13, 'pork wontons with sesame sauce', 1938, 199, 212, 4, '15 minutes', '20 minutes', 'clongmore0'), 
+    (14, 'classic chicken pho', 113988, 2891, 215, 5, '20 minutes', '30 minutes', 'qjerattn'),
+    (15, 'perfect fish tacos', 827, 283, )
 
 INSERT INTO pantry 
     (pantryID, userNam)
