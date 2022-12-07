@@ -280,7 +280,22 @@ VALUES
     (12, 'paneer butter masala', 208, 100, 218, 4, '10 minutes', '15 minutes', 'bmcclelland8'),
     (13, 'pork wontons with sesame sauce', 1938, 199, 212, 4, '15 minutes', '20 minutes', 'clongmore0'), 
     (14, 'classic chicken pho', 113988, 2891, 215, 5, '20 minutes', '30 minutes', 'qjerattn'),
-    (15, 'perfect fish tacos', 827, 283, )
+    (15, 'perfect fish tacos', 827, 283, 103, 2, '12 minutes', '15 minutes', 'kfedorskig'), 
+    (16, 'easy canned chickpea hummus', 10, 0, 103, 3, '5 minutes', '5 minutes', 'sburletonl'), 
+    (17, 'candy pork', 100, 10, 215, 5, '20 minutes', '20 minutes', 'jcharlwood5'),
+    (18, 'paneer and broccolo masala', 500, 234, 218, 5,'15 minutes', '25 minutes', 'msimanenko7'), 
+    (19, 'pongal', 134, 22, 218, 6, '20 minutes', '25 minutes', 'chef12pas'),
+    (20, 'summertime somen noodles', 10, 9, 213, 10, '25 minutes', '5 minutes','bmcclelland8'), 
+    (21, 'crispy taiwanese pork cutlets', 130, 67, 239, 'glotonh'), 
+    (22, 'chicken hamonado', 199, 20, 103, 5, '10 minutes', '15 minutes', 'iambroschf'),
+    (23, 'broiled tofu with miso', 93, 14, 212, 1, '10 minutes', '5 minutes', 'wsikoram'), 
+    (24, 'pasta alla gricia', 200, 30, 132, 4, '10 minutes', '15 minutes', 'kgrishaevj'), 
+    (25, 'quesadilla', 2847, 299, 234, 1, '10 minutes', '5 minutes', 'bmcclelland8'), 
+    (26, 'stir-fried egg and tomato', 29, 23, 103, 1, '5 minutes', '5 minutes', 'luvfoodz'),
+    (27, 'gyoza', 3298, 2983, 212, 2, '25 minutes', '25 minutes', 'ewiganc'), 
+    (28, 'pasta with ham, pea, and cream sauce', 14, 0, 132, 5, '15 minutes', '15 minutes'), 
+    (29, 'fried rice w/ chicken and broccolini', 56, 0, 212, 4, '15 minutes', '15 minutes', 'bfarnalli'), 
+    (30, 'cripsy chicken wings', 1990, 1800, 103, 5, '10 minutes', '15 minutes', 'sbogo');
 
 INSERT INTO pantry 
     (pantryID, userNam)
@@ -292,14 +307,14 @@ VALUES
 INSERT INTO instructions 
     (instruID, steps, recipeNum)
 VALUES 
-    (687, 'boil potato with skin on for ten minutes', 1), 
-    (803, 'cut potatoe in half', 1), 
-    (483, 'spread butter on potato', 1), 
-    (586, 'add salt and pepper', 1), 
-    (209,  'boil pasta for ten minutes', 2), 
-    (301, 'drain pasta', 2),
-    (320, 'add sauce to pot', 2), 
-    (182, 'add salt, pepper, and pasta to pot', 2);
+    (1, 'boil potato with skin on for ten minutes', 1), 
+    (2, 'cut potatoe in half', 1), 
+    (3, 'spread butter on potato', 1), 
+    (4, 'add salt and pepper', 1), 
+    (5,  'boil pasta for ten minutes', 2), 
+    (6, 'drain pasta', 2),
+    (7, 'add sauce to pot', 2), 
+    (8, 'add salt, pepper, and pasta to pot', 2);
     
 INSERT INTO ingredient
     (ingredientID, name, quantity)
