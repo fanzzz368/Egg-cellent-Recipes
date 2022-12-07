@@ -51,7 +51,7 @@ def input_ingredients():
 def recipes_ingred():
     cursor = db.get_db().cursor()
     query = '''
-    SELECT *
+    SELECT r.name
     FROM recipe r JOIN ingredient_rec ir on r.recipeId = ir.recipeNum
     WHERE (SELECT COUNT(i.ingredientId) as numMatches
             FROM ingredient_rec ir JOIN ingredient i on ir.ingredientNum = i.ingredientId

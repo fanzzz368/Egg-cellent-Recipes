@@ -127,7 +127,6 @@ CREATE TABLE help_requests (
     FOREIGN KEY (employeeNum) REFERENCES employee(employeeID)
 );
 
-
 INSERT INTO cuisine 
     (name, cuisineID)
 VALUES 
