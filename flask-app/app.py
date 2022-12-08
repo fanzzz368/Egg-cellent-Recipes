@@ -5,7 +5,7 @@
 # import the create app function
 # that lives in src/__init__.py
 from src import create_app
-from flask import request
+from flask import request, jsonify
 from src import db
  
 # create the app object
@@ -14,6 +14,17 @@ app = create_app()
 @app.route('/')
 def homepage():
    return f'<h1>Welcome to Egg-cellent Recipes!</h1>'
+
+@app.route('/db_test')
+def db_testing():
+   cur = db.get_db().cursor()
+   cur.execute('select * from pantry')
+   row_headers = [x[0] for x in cur.description]
+   json_data = []
+   theData = cur.fetchall()
+   for row in theData:
+       json_data.append(dict(zip(row_headers, row)))
+   return jsonify(json_data)
  
 @app.route('/suggested_recipes')
 def suggested_recipes():
