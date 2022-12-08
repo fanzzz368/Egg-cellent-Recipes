@@ -15,9 +15,7 @@ CREATE TABLE employee (
     firstName VARCHAR(255) NOT NULL, 
     lastName VARCHAR(255) NOT NULL, 
     title VARCHAR(255) NOT NULL, 
-    cuisineNum Integer NOT NULL, 
-    email VARCHAR(255) UNIQUE NOT NULL, 
-    FOREIGN KEY (cuisineNum) REFERENCES cuisine(cuisineID)
+    email VARCHAR(255) UNIQUE NOT NULL
 );
 
 CREATE TABLE employee_cuisine (
@@ -132,68 +130,101 @@ VALUES
     ('American', 103),
     ('Italian', 132),        
     ('Chinese', 212),
-    ('Japanese', 213)
-    ('Caribbean', 214)
-    ('Vietnamese', 215)
-    ('Korean', 216)
-    ('German', 217)
-    ('Indian', 218)
-    ('Greek', 219)
-    ('French', 220)
-    ('Moroccan', 221)
-    ('Turkish', 222)
-    ('Thai', 223)
-    ('Lebanese', 224)
-    ('Nigerian', 225)
-    ('Malaysian', 226)
-    ('Filipino', 227)
-    ('Pakistani', 228)
-    ('Egyptian', 229)
-    ('Zimbian', 230)
-    ('Spanish', 231)
-    ('Australian', 232)
-    ('Scottish', 233)
-    ('Mexican', 234)
-    ('Indonesian', 235)
-    ('Brazilian', 236)
-    ('Russian', 237)
-    ('Peruvian', 238)
+    ('Japanese', 213),
+    ('Caribbean', 214),
+    ('Vietnamese', 215),
+    ('Korean', 216),
+    ('German', 217),
+    ('Indian', 218),
+    ('Greek', 219),
+    ('French', 220),
+    ('Moroccan', 221),
+    ('Turkish', 222),
+    ('Thai', 223),
+    ('Lebanese', 224),
+    ('Nigerian', 225),
+    ('Malaysian', 226),
+    ('Filipino', 227),
+    ('Pakistani', 228),
+    ('Egyptian', 229),
+    ('Zimbian', 230),
+    ('Spanish', 231),
+    ('Australian', 232),
+    ('Scottish', 233),
+    ('Mexican', 234),
+    ('Indonesian', 235),
+    ('Brazilian', 236),
+    ('Russian', 237),
+    ('Peruvian', 238),
     ('Others', 239);
 
 INSERT INTO employee 
-    (employeeID, firstName, lastName, title, cuisineNum, email)
+    (employeeID, firstName, lastName, title, email)
 VALUES 
-    (1, 'Chris', 'Patterson', 'customer service representative', 103, 'christpatterson@gmail.com'),
-    (2, 'Mandy', 'Kipling', 'customer service representative', 132, 'mandykipling@gmail.com'),
-    (3, 'Paige', 'Loveman', 'customer service representative', 212, 'paigeloveman@gmail.com'),
-    (4, 'Brian', 'Mul', 'customer service representative', 213, 'brianmul@gmail.com'),
-    (5, 'Emily', 'Flower', 'customer service representative', 214, 'emilyflower@gmail.com')
-    (6, 'Shuai', 'Ge', 'customer service representative', 215, 'shuaige@gmail.com')
-    (7, 'Billy', 'Bob', 'customer service representative', 216, 'billybob@gmail.com'),
-    (8, 'Amanda', 'Liu', 'customer service representative', 217, 'amandaliu@gmail.com'),
-    (9, 'Lily', 'Zhu', 'customer service representative', 218, 'lilyzhu@gmail.com'),
-    (10, 'Jeff', 'Anderson', 'customer service representative', 219, 'jeffanderson@gmail.com'),
-    (11, 'Cory', 'White', 'customer service representative', 220, 'corywhite@gmail.com')
-    (12, 'Lucy', 'Armstrong', 'customer service representative', 221, 'lucyarmstrong@gmail.com')
-    (13, 'Harris', 'Batman', 'customer service representative', 222, 'harrisbatman@gmail.com'),
-    (14, 'Molly', 'Bear', 'customer service representative', 223, 'mollybear@gmail.com'),
-    (15, 'Peppa', 'Ping', 'customer service representative', 224, 'peppaping@gmail.com'),
-    (16, 'Ryan', 'Null', 'customer service representative', 225, 'ryannull@gmail.com'),
-    (17, 'Casey', 'Plant', 'customer service representative', 226, 'caseyplant@gmail.com')
-    (18, 'Henry', 'Young', 'customer service representative', 227, 'henryyoung@gmail.com')
-    (19, 'Harry', 'Old', 'customer service representative', 228, 'harryold@gmail.com'),
-    (20, 'Paul', 'Liu', 'customer service representative', 229, 'paulliu@gmail.com'),
-    (21, 'Vincent', 'Zhu', 'customer service representative', 230, 'vincentzhu@gmail.com'),
-    (22, 'Andrea', 'Lol', 'customer service representative', 231, 'andrealol@gmail.com'),
-    (23, 'Daniel', 'Xu', 'customer service representative', 232, 'danielxu@gmail.com')
-    (24, 'Brianna', 'Yolo', 'customer service representative', 233, 'briannayolo@gmail.com')
-    (25, 'Alice', 'Chu', 'customer service representative', 234, 'alicechu@gmail.com'),
-    (26, 'Frank', 'Darcy', 'customer service representative', 235, 'frankdarcy@gmail.com'),
-    (27, 'George', 'Mouse', 'customer service representative', 236, 'georgemousegmail.com'),
-    (28, 'Theo', 'Door', 'customer service representative', 237, 'theodoor@gmail.com'),
-    (29, 'Will', 'Bread', 'customer service representative', 238, 'willbread@gmail.com')
-    (30, 'John', 'Winterjacket', 'customer service representative', 239, 'johnwinterjacket@gmail.com');
+    (1, 'Chris', 'Patterson', 'customer service representative', 'christpatterson@gmail.com'),
+    (2, 'Mandy', 'Kipling', 'customer service representative', 'mandykipling@gmail.com'),
+    (3, 'Paige', 'Loveman', 'customer service representative', 'paigeloveman@gmail.com'),
+    (4, 'Brian', 'Mul', 'customer service representative', 'brianmul@gmail.com'),
+    (5, 'Emily', 'Flower', 'customer service representative', 'emilyflower@gmail.com')
+    (6, 'Shuai', 'Ge', 'customer service representative', 'shuaige@gmail.com')
+    (7, 'Billy', 'Bob', 'customer service representative', 'billybob@gmail.com'),
+    (8, 'Amanda', 'Liu', 'customer service representative', 'amandaliu@gmail.com'),
+    (9, 'Lily', 'Zhu', 'customer service representative', 'lilyzhu@gmail.com'),
+    (10, 'Jeff', 'Anderson', 'customer service representative', 'jeffanderson@gmail.com'),
+    (11, 'Cory', 'White', 'customer service representative', 'corywhite@gmail.com'),
+    (12, 'Lucy', 'Armstrong', 'customer service representative', 'lucyarmstrong@gmail.com')
+    (13, 'Harris', 'Batman', 'customer service representative', 'harrisbatman@gmail.com'),
+    (14, 'Molly', 'Bear', 'customer service representative', 'mollybear@gmail.com'),
+    (15, 'Peppa', 'Ping', 'customer service representative', 'peppaping@gmail.com'),
+    (16, 'Ryan', 'Null', 'customer service representative', 'ryannull@gmail.com'),
+    (17, 'Casey', 'Plant', 'customer service representative', 'caseyplant@gmail.com'),
+    (18, 'Henry', 'Young', 'customer service representative', 'henryyoung@gmail.com'),
+    (19, 'Harry', 'Old', 'customer service representative', 'harryold@gmail.com'),
+    (20, 'Paul', 'Liu', 'customer service representative', 'paulliu@gmail.com'),
+    (21, 'Vincent', 'Zhu', 'customer service representative', 'vincentzhu@gmail.com'),
+    (22, 'Andrea', 'Lol', 'customer service representative', 'andrealol@gmail.com'),
+    (23, 'Daniel', 'Xu', 'customer service representative', 'danielxu@gmail.com'),
+    (24, 'Brianna', 'Yolo', 'customer service representative', 'briannayolo@gmail.com'),
+    (25, 'Alice', 'Chu', 'customer service representative', 'alicechu@gmail.com'),
+    (26, 'Frank', 'Darcy', 'customer service representative', 'frankdarcy@gmail.com'),
+    (27, 'George', 'Mouse', 'customer service representative', 'georgemousegmail.com'),
+    (28, 'Theo', 'Door', 'customer service representative', 'theodoor@gmail.com'),
+    (29, 'Will', 'Bread', 'customer service representative', 'willbread@gmail.com'),
+    (30, 'John', 'Winterjacket', 'customer service representative', 'johnwinterjacket@gmail.com');
 
+INSERT INTO employee_cuisine
+    (employeeNum, cusineNum)
+VALUES 
+    (1, 103),
+    (2, 132),
+    (3, 212),
+    (4, 213),
+    (5, 214),
+    (6, 215),
+    (7, 216),
+    (8, 217),
+    (9, 218),
+    (10, 219),
+    (11, 220)
+    (12, 221),
+    (13, 222),
+    (14, 223),
+    (15, 224),
+    (16, 225),
+    (17, 226),
+    (18, 227),
+    (19, 228),
+    (20, 229),
+    (21, 230),
+    (22, 231),
+    (23, 232),
+    (24, 233),
+    (25, 234),
+    (26, 235),
+    (27, 236),
+    (28, 237),
+    (29, 238),
+    (30, 239);
 
 INSERT INTO user
     (username, email, employeeNum, firstName, lastName, phoneNum) 
@@ -203,13 +234,13 @@ VALUES
     ('bsollars2','bsollars2@123-reg.co.uk',3,'Blaire', 'Sollars', 9175023923), 
     ('rpickaver3','rpickaver3@arizona.edu',4,'Raviv', 'Pickaver', 9175021092),
     ('rbernaldez4','rbernaldez4@wsj.com',5,'Riva','Bernaldez', 9175021274),
-    ('joejoeymulligan','joejoeymulligan@wsj.com',6,'Joe','Mulligan', 9175021937)
+    ('joejoeymulligan','joejoeymulligan@wsj.com',6,'Joe','Mulligan', 9175021937),
     ('fandadadayo','fzoom@gmail.com',7,'Fan','Zoom', 8603128888),
     ('luvfoodz','yumfood8@yahoo.com',8, 'Jamie','Moon',9175021234),
     ('pickleseater23','kelseyjo@gmail.com',9,'Kelsey', 'Jo', 3211409123), 
     ('randomperson11','randyliu3@gmail.com',10,'Randy', 'Liu', 3459871023),
     ('lizqueen','elizabethstraw99@gmail.com',11,'Elizabeth','Straw', 9175021774),
-    ('johnathon342','john342@wsj.com',12,'Johnathon','Miller', 9175022894)
+    ('johnathon342','john342@wsj.com',12,'Johnathon','Miller', 9175022894),
     ('emily88','iamemily88@marriott.com',13,'Emily','Stocks', 8609089123),
     ('howardtower','howardeatsfood@gmail.com',14, 'Howard','Toward', 8609489123),
     ('bennypenny','bpsoccer@gmail.com',15,'Ben', 'Peng', 9175023323), 
@@ -300,9 +331,36 @@ VALUES
 INSERT INTO pantry 
     (pantryID, userNam)
 VALUES 
-    (123, 'estack0'),
-    (345, 'rbernaldez4'),
-    (567, 'joeJoeyMulligan');
+    (1, 'estack0'),
+    (2, 'awellstead1'),
+    (3, 'bsollars2'), 
+    (4, 'rpickaver3'),
+    (5, 'rbernaldez4'),
+    (6, 'joejoeymulligan'),
+    (7, 'fandadadayo'),
+    (8, 'luvfoodz'),
+    (9, 'pickleseater23'), 
+    (10, 'randomperson11'),
+    (11, 'lizqueen'),
+    (12, 'johnathon342'),
+    (13, 'emily88'),
+    (14, 'howardtower'),
+    (15, 'bennypenny'), 
+    (16, 'ketchup912'),
+    (17, 'kellywillis34'),
+    (18, 'differentjoe'),
+    (19, 'iloverain3'),
+    (20, 'iwanttocook13'),
+    (21, 'badmintonpro34'), 
+    (22, 'isleepandeat'),
+    (23, 'cupcakes2023'),
+    (24, 'kruskalalgo99'),
+    (25, 'pollytriangle2'),
+    (26, 'itakenaps42'),
+    (27, 'icanswim2'), 
+    (28, 'holidayseasonyay'),
+    (29, 'user234'),
+    (30, 'user123456');
 
 INSERT INTO instructions 
     (instruID, steps, recipeNum)
@@ -343,8 +401,6 @@ VALUES
     (33, 'In a 4-quart saucepan, combine the rice, chicken stock, and water. Cover and let sit overnight at cool room temperature (around or below 60°F) or in the refrigerator', 10),
     (34, 'The next morning, add the ginger and the white parts of the green onions to the pot. Partially cover (a small gap is perfect to minimize evaporation and avoid a boil over) and bring to vigorous simmer over high heat. Lower the heat and gently simmer, partially covered, for 15 minutes, stirring occasionally and adjusting the heat as needed. When done, most of the liquid will have been absorbed (you’ll see little separation between the rice and liquid). Discard the ginger and green onions. Stir the pot, cover tightly, turn off the heat, and let rest for 10 minutes to finish thickening. The desired thickness of the porridge can vary according to taste; it can be rustic and thick, or elegant and thin, or somewhere in between. If needed, add a splash of water to thin or cook a little longer to thicken. Taste and season with the salt', 10), 
     (35, 'When ready to serve, reheat the porridge to a simmer, then ladle into individual bowls. Garnish with sliced green onions and pepper', 10);
-
-
     
 INSERT INTO ingredient
     (ingredientID, name, quantity)
