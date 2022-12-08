@@ -1171,6 +1171,6 @@ VALUES
     (26, 26, 'icanswim2', 8574371354, 'b.mondo@northeastern.edu', 'Can you send me the link to the recipe for xiao long baos?'),
     (27, 27, 'holidayseasonyay', 6745986435, 'hollyku@northeastern.edu', 'Is there a gingerbread man recipe?'),
     (28, 28, 'user234', 9453781208, 'basicname45@yahoo.com', 'How do I empty out my pantry'),
-    (29, 29, 'sbogo', 'sbogo@list-manage.com', 'Can you add a top chef of the month category and make me the top chef?'),
+    (29, 29, 'sbogo', 9983509000, 'sbogo@list-manage.com', 'Can you add a top chef of the month category and make me the top chef?'),
     (30, 30, 'glotonh', 1509771140, 'glotonh@sbwire.com', 'How do I upload a recipe, I dont see the button');
 
