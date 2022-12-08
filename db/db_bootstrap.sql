@@ -314,7 +314,37 @@ VALUES
     (5,  'boil pasta for ten minutes', 2), 
     (6, 'drain pasta', 2),
     (7, 'add sauce to pot', 2), 
-    (8, 'add salt, pepper, and pasta to pot', 2);
+    (8, 'add salt, pepper, and pasta to pot', 2), 
+    (9, 'get yougrt, granola, berries', 3), 
+    (10, 'put granola and berries on top of yogurt', 3),
+    (11, 'In a shallow bowl, combine butter, Worcestershire sauce and mustard', 4), 
+    (12, 'Place onions in another shallow bowl', 4), 
+    (13, 'Dip chicken in butter mixture, then coat with onions', 4), 
+    (14, 'Place in a greased 11x7-in. baking dish; drizzle with remaining butter mixture.', 4), 
+    (15, 'Bake, uncovered, at 400° for 20-25 minutes or until a thermometer reads 165°', 4),
+    (16, 'In a Dutch oven, combine milk, water and macaroni; bring to a boil over medium heat', 5), 
+    (17, 'Reduce heat and simmer until macaroni is tender and almost all the cooking liquid has been absorbed, 12-15 minutes, stirring frequently', 5), 
+    (18, 'Reduce heat to low; stir in cheeses until melted and season with salt and pepper', 5), 
+    (19, 'In a Dutch oven, cook pasta according to package directions, adding peas during the last 3 minutes of cooking; drain and return to pan', 6), 
+    (20, 'Stir in shrimp and sauce; heat through over medium heat, stirring occasionally and sprinkle with cheese', 6), 
+    (21, 'Bring a large pot of salted water to a boil. Add the plantains and boil until fork-tender, about 25 minutes. Drain the plantains, reserving ½ cup (125 mL) of the cooking water', 7), 
+    (22, 'Meanwhile, place the red onion in a small bowl and cover with the vinegar', 7), 
+    (23, 'Transfer the plantains to a medium bowl and add the reserved cooking water, 1 tablespoon (15 mL) of the olive oil, salt, and pepper. Mash the plantains to the consistency of mashed potatoes', 7), 
+    (24, 'In a medium frying pan, heat the vegetable oil over medium heat. Drain the red onions and discard the vinegar. Add the onions to the pan and cook, stirring often, until soft and translucent, about 5 minutes. Transfer to a plate', 7), 
+    (25, 'In the same pan (no need to wipe clean), heat the remaining 1 tablespoon (15 mL) olive oil over medium heat. Carefully crack the eggs into the pan, leaving space between each egg. Cook for 3 to 4 minutes, or until the whites are cooked and no longer translucent and the yolks are still runny. (I prefer the eggs over easy for this dish.)', 7), 
+    (26, 'To serve, divide the mashed plantain between plates and top with a fried egg, cooked onions, and a few slices of avocado. Season with salt and pepper to taste', 7), 
+    (27, 'Whisk together the flour, baking powder, and salt in a small bowl', 8), 
+    (28, 'In a medium bowl, whisk the egg and milk. Add the flour mixture and mix until just blended. The batter should be quite thin. Add the chopped vegetables to the batter and mix well', 8),
+    (29, 'Heat 1 tablespoon of the oil in a medium non- stick skillet over medium-high heat. Pour ¼ cup (60 ml) of the batter to make a 6-inch (15 cm) pancake. Cook until medium brown, about 1 minute. Place ¼ of the meat on top of the pancake and then flip the meat side down. Turn heat to low and cook until the bottom of the pancake is browned, the meat is thoroughly cooked, and the vegetables are tender—about 10 minutes. Repeat until the batter is used up', 8), 
+    (30, 'To serve, brush the pancake with mayonnaise and tonkatsu sauce, or soy sauce. Sprinkle with the bonito flakes and crumbled nori. Eat while piping hot', 8),
+    (31, 'Preheat the oven to 400°F. Set racks in the upper and lower thirds of the oven. Line two 13x18-inch baking sheets with parchment paper. In a small bowl, beat the egg with 1 tablespoon water. Prep the ingredients for the filling and set aside', 9), 
+    (31, 'If using a 17-ounce puff pastry package, roll each sheet to a 9x12-inch rectangle. Cut each piece lengthwise into eight 1 1/2-inch wide strips. Cut each strip crosswise into two pieces, about 4 1/2 inches long. You should have 32 pieces of pastry', 9), 
+    (32, 'Spread the center of each piece of pastry with 1/2 teaspoon mustard and top with 1/2 teaspoon sauerkraut. Brush one narrow end of the pastry with egg wash, add one piece of sausage, and roll to enclose. Return to parchment-lined baking sheets. Brush the top of each pastry with egg wash and sprinkle with caraway seeds, seam-side down. Chill in refrigerator for 15 minutes. Bake until golden brown and puffed, 23 to 27 minutes', 9), 
+    (33, 'In a 4-quart saucepan, combine the rice, chicken stock, and water. Cover and let sit overnight at cool room temperature (around or below 60°F) or in the refrigerator', 10),
+    (34, 'The next morning, add the ginger and the white parts of the green onions to the pot. Partially cover (a small gap is perfect to minimize evaporation and avoid a boil over) and bring to vigorous simmer over high heat. Lower the heat and gently simmer, partially covered, for 15 minutes, stirring occasionally and adjusting the heat as needed. When done, most of the liquid will have been absorbed (you’ll see little separation between the rice and liquid). Discard the ginger and green onions. Stir the pot, cover tightly, turn off the heat, and let rest for 10 minutes to finish thickening. The desired thickness of the porridge can vary according to taste; it can be rustic and thick, or elegant and thin, or somewhere in between. If needed, add a splash of water to thin or cook a little longer to thicken. Taste and season with the salt', 10), 
+    (35, 'When ready to serve, reheat the porridge to a simmer, then ladle into individual bowls. Garnish with sliced green onions and pepper', 10);
+
+
     
 INSERT INTO ingredient
     (ingredientID, name, quantity)
