@@ -1139,3 +1139,38 @@ VALUES
     (16, 168),
     (16, 169),
     (16, 170);
+
+INSERT into help_requests
+    (ticketID, employeeNum, user_username, user_phoneNum, user_email, help_needed)
+VALUES
+    (1, 1, 'luvfoodz', 9175021234, 'yumfood8@yahoo.com', 'Hi, I need help changing my username to luv_unicornz'),
+    (2, 2, 'pickleseater23', 3211409123, 'kelseyjo@gmail.com', 'I want to change my username to eatmorepickles'),
+    (3, 3, 'estack0', 9175023045, 'estack0@marriott.com', 'I want to upload a recipe but I am an user not a chef. What do I do.'),
+    (4, 1, 'awllstead1', 9175021235, 'awellstead1@dion.ne.jp', 'My daughter wants to make an account and asked me for help but idk'),
+    (5, 5, 'bsollars2', 9175023923, 'bsollars2@123-reg.co.uk', 'Can you ask your chefs to add my favorite recipe ham and cheese sandwich'),
+    (6, 6, 'rpickaver3', 9175021092, 'rpickaver3@arizona.edu', 'I just want to say hi'),
+    (7, 1, 'rbernaldez4', 9175021274, 'rbernaldez4@wsj.com', 'I am locked out of my account plz help'),
+    (8, 8, 'joejoeymulligan', 9175021937, 'joejoeymulligan@wsj.com', 'I love this website. Keep it up!'),
+    (9, 9, 'fandadadayo', 8603128888,'fzoom@gmail.com', 'I lost my password so now I am scared to log out'),
+    (10, 10, 'randomperson11', 3459871023, 'randyliu3@gmail.com', 'Can I change my username? I think its a default one right now'),
+    (11, 11, 'lizqueen', 9175021774,'elizabethstraw99@gmail.com', 'Can yall put my favorite recipe in the top 10 suggested?'),
+    (12, 12, 'johnathon342', 9175022894, 'john342@wsj.com', 'Can you call me back tomorrow at 5 pm; I need help with my account'),
+    (13, 13, 'emily88', 8609089123, 'iamemily88@marriott.com', 'Is there a way to empty my current pantry'),
+    (14, 14, 'howardtower', 8609489123, 'howardeatsfood@gmail.com', 'Can you teach me how to print out a pdf of the pork cutlet recipe? Its so good!!'),
+    (15, 15, 'bennypenny', 9175023323,'bpsoccer@gmail.com', 'Can you help me find my password? I want to reset it'),
+    (16, 16, 'ketchup912', 6782349876, 'calebzhu@arizona.edu', 'Can the chefs upload more recipes involving ketchup?'),
+    (17, 3, 'ilovecheesechef', 9175021298, 'mandykipling@gmail.com', 'I tried adding 100 cheese related recipes in a day but it says system timed out. Why'),
+    (18, 18, 'chef12pas', 9175022093, 'chrispatternson@gmail.com', 'I really like the abundant amount of ingredients in your system. Can you add string beans too'),
+    (19, 19, 'iloverain3', 9176023045, 'ibelieveinfate@gmail.com', 'Can you help me find the perfect recipe to use. I want to make it on my bday'),
+    (20, 20, 'badmintonpro34', 9175223323, 'iplaysports78@yahoo.com', 'What recipes are good for athletes like me?'),
+    (21, 21, 'isleepandeat', 6782349886, 'enjoylife4@gmail.com', 'Can you help me reset my password'),
+    (22, 22, 'cupcakes2023', 6782449886, 'youngkid49@gmail.com', 'I want CookieswirlC recipes on here!!!'),
+    (23, 23, 'kruskalalgo99', 8607859993, 'ilovecs@yahoo.com', 'Which recipes are good for people who study cs?'),
+    (24, 24, 'kcarlop', 1466920655, 'kcarlop@opensource.org', 'Can you add bean sprouts to the ingredient inventory'),
+    (25, 25, 'itakenaps42', 5679352789, 'susanli3@gmail.com', 'I want to follow a recipe but I dont have the ingredients, what should I do'),
+    (26, 26, 'icanswim2', 8574371354, 'b.mondo@northeastern.edu', 'Can you send me the link to the recipe for xiao long baos?'),
+    (27, 27, 'holidayseasonyay', 6745986435, 'hollyku@northeastern.edu', 'Is there a gingerbread man recipe?'),
+    (28, 28, 'user234', 9453781208, 'basicname45@yahoo.com', 'How do I empty out my pantry'),
+    (29, 29, 'sbogo', 'sbogo@list-manage.com', 'Can you add a top chef of the month category and make me the top chef?'),
+    (30, 30, 'glotonh', 1509771140, 'glotonh@sbwire.com', 'How do I upload a recipe, I dont see the button');
+
