@@ -15,9 +15,7 @@ CREATE TABLE employee (
     firstName VARCHAR(255) NOT NULL, 
     lastName VARCHAR(255) NOT NULL, 
     title VARCHAR(255) NOT NULL, 
-    cuisineNum Integer NOT NULL, 
-    email VARCHAR(255) UNIQUE NOT NULL, 
-    FOREIGN KEY (cuisineNum) REFERENCES cuisine(cuisineID)
+    email VARCHAR(255) UNIQUE NOT NULL
 );
 
 CREATE TABLE employee_cuisine (
@@ -132,68 +130,101 @@ VALUES
     ('American', 103),
     ('Italian', 132),        
     ('Chinese', 212),
-    ('Japanese', 213)
-    ('Caribbean', 214)
-    ('Vietnamese', 215)
-    ('Korean', 216)
-    ('German', 217)
-    ('Indian', 218)
-    ('Greek', 219)
-    ('French', 220)
-    ('Moroccan', 221)
-    ('Turkish', 222)
-    ('Thai', 223)
-    ('Lebanese', 224)
-    ('Nigerian', 225)
-    ('Malaysian', 226)
-    ('Filipino', 227)
-    ('Pakistani', 228)
-    ('Egyptian', 229)
-    ('Zimbian', 230)
-    ('Spanish', 231)
-    ('Australian', 232)
-    ('Scottish', 233)
-    ('Mexican', 234)
-    ('Indonesian', 235)
-    ('Brazilian', 236)
-    ('Russian', 237)
-    ('Peruvian', 238)
+    ('Japanese', 213),
+    ('Caribbean', 214),
+    ('Vietnamese', 215),
+    ('Korean', 216),
+    ('German', 217),
+    ('Indian', 218),
+    ('Greek', 219),
+    ('French', 220),
+    ('Moroccan', 221),
+    ('Turkish', 222),
+    ('Thai', 223),
+    ('Lebanese', 224),
+    ('Nigerian', 225),
+    ('Malaysian', 226),
+    ('Filipino', 227),
+    ('Pakistani', 228),
+    ('Egyptian', 229),
+    ('Zimbian', 230),
+    ('Spanish', 231),
+    ('Australian', 232),
+    ('Scottish', 233),
+    ('Mexican', 234),
+    ('Indonesian', 235),
+    ('Brazilian', 236),
+    ('Russian', 237),
+    ('Peruvian', 238),
     ('Others', 239);
 
 INSERT INTO employee 
-    (employeeID, firstName, lastName, title, cuisineNum, email)
+    (employeeID, firstName, lastName, title, email)
 VALUES 
-    (1, 'Chris', 'Patterson', 'customer service representative', 103, 'christpatterson@gmail.com'),
-    (2, 'Mandy', 'Kipling', 'customer service representative', 132, 'mandykipling@gmail.com'),
-    (3, 'Paige', 'Loveman', 'customer service representative', 212, 'paigeloveman@gmail.com'),
-    (4, 'Brian', 'Mul', 'customer service representative', 213, 'brianmul@gmail.com'),
-    (5, 'Emily', 'Flower', 'customer service representative', 214, 'emilyflower@gmail.com')
-    (6, 'Shuai', 'Ge', 'customer service representative', 215, 'shuaige@gmail.com')
-    (7, 'Billy', 'Bob', 'customer service representative', 216, 'billybob@gmail.com'),
-    (8, 'Amanda', 'Liu', 'customer service representative', 217, 'amandaliu@gmail.com'),
-    (9, 'Lily', 'Zhu', 'customer service representative', 218, 'lilyzhu@gmail.com'),
-    (10, 'Jeff', 'Anderson', 'customer service representative', 219, 'jeffanderson@gmail.com'),
-    (11, 'Cory', 'White', 'customer service representative', 220, 'corywhite@gmail.com')
-    (12, 'Lucy', 'Armstrong', 'customer service representative', 221, 'lucyarmstrong@gmail.com')
-    (13, 'Harris', 'Batman', 'customer service representative', 222, 'harrisbatman@gmail.com'),
-    (14, 'Molly', 'Bear', 'customer service representative', 223, 'mollybear@gmail.com'),
-    (15, 'Peppa', 'Ping', 'customer service representative', 224, 'peppaping@gmail.com'),
-    (16, 'Ryan', 'Null', 'customer service representative', 225, 'ryannull@gmail.com'),
-    (17, 'Casey', 'Plant', 'customer service representative', 226, 'caseyplant@gmail.com')
-    (18, 'Henry', 'Young', 'customer service representative', 227, 'henryyoung@gmail.com')
-    (19, 'Harry', 'Old', 'customer service representative', 228, 'harryold@gmail.com'),
-    (20, 'Paul', 'Liu', 'customer service representative', 229, 'paulliu@gmail.com'),
-    (21, 'Vincent', 'Zhu', 'customer service representative', 230, 'vincentzhu@gmail.com'),
-    (22, 'Andrea', 'Lol', 'customer service representative', 231, 'andrealol@gmail.com'),
-    (23, 'Daniel', 'Xu', 'customer service representative', 232, 'danielxu@gmail.com')
-    (24, 'Brianna', 'Yolo', 'customer service representative', 233, 'briannayolo@gmail.com')
-    (25, 'Alice', 'Chu', 'customer service representative', 234, 'alicechu@gmail.com'),
-    (26, 'Frank', 'Darcy', 'customer service representative', 235, 'frankdarcy@gmail.com'),
-    (27, 'George', 'Mouse', 'customer service representative', 236, 'georgemousegmail.com'),
-    (28, 'Theo', 'Door', 'customer service representative', 237, 'theodoor@gmail.com'),
-    (29, 'Will', 'Bread', 'customer service representative', 238, 'willbread@gmail.com')
-    (30, 'John', 'Winterjacket', 'customer service representative', 239, 'johnwinterjacket@gmail.com');
+    (1, 'Chris', 'Patterson', 'customer service representative', 'christpatterson@gmail.com'),
+    (2, 'Mandy', 'Kipling', 'customer service representative', 'mandykipling@gmail.com'),
+    (3, 'Paige', 'Loveman', 'customer service representative', 'paigeloveman@gmail.com'),
+    (4, 'Brian', 'Mul', 'customer service representative', 'brianmul@gmail.com'),
+    (5, 'Emily', 'Flower', 'customer service representative', 'emilyflower@gmail.com')
+    (6, 'Shuai', 'Ge', 'customer service representative', 'shuaige@gmail.com')
+    (7, 'Billy', 'Bob', 'customer service representative', 'billybob@gmail.com'),
+    (8, 'Amanda', 'Liu', 'customer service representative', 'amandaliu@gmail.com'),
+    (9, 'Lily', 'Zhu', 'customer service representative', 'lilyzhu@gmail.com'),
+    (10, 'Jeff', 'Anderson', 'customer service representative', 'jeffanderson@gmail.com'),
+    (11, 'Cory', 'White', 'customer service representative', 'corywhite@gmail.com'),
+    (12, 'Lucy', 'Armstrong', 'customer service representative', 'lucyarmstrong@gmail.com')
+    (13, 'Harris', 'Batman', 'customer service representative', 'harrisbatman@gmail.com'),
+    (14, 'Molly', 'Bear', 'customer service representative', 'mollybear@gmail.com'),
+    (15, 'Peppa', 'Ping', 'customer service representative', 'peppaping@gmail.com'),
+    (16, 'Ryan', 'Null', 'customer service representative', 'ryannull@gmail.com'),
+    (17, 'Casey', 'Plant', 'customer service representative', 'caseyplant@gmail.com'),
+    (18, 'Henry', 'Young', 'customer service representative', 'henryyoung@gmail.com'),
+    (19, 'Harry', 'Old', 'customer service representative', 'harryold@gmail.com'),
+    (20, 'Paul', 'Liu', 'customer service representative', 'paulliu@gmail.com'),
+    (21, 'Vincent', 'Zhu', 'customer service representative', 'vincentzhu@gmail.com'),
+    (22, 'Andrea', 'Lol', 'customer service representative', 'andrealol@gmail.com'),
+    (23, 'Daniel', 'Xu', 'customer service representative', 'danielxu@gmail.com'),
+    (24, 'Brianna', 'Yolo', 'customer service representative', 'briannayolo@gmail.com'),
+    (25, 'Alice', 'Chu', 'customer service representative', 'alicechu@gmail.com'),
+    (26, 'Frank', 'Darcy', 'customer service representative', 'frankdarcy@gmail.com'),
+    (27, 'George', 'Mouse', 'customer service representative', 'georgemousegmail.com'),
+    (28, 'Theo', 'Door', 'customer service representative', 'theodoor@gmail.com'),
+    (29, 'Will', 'Bread', 'customer service representative', 'willbread@gmail.com'),
+    (30, 'John', 'Winterjacket', 'customer service representative', 'johnwinterjacket@gmail.com');
 
+INSERT INTO employee_cuisine
+    (employeeNum, cusineNum)
+VALUES 
+    (1, 103),
+    (2, 132),
+    (3, 212),
+    (4, 213),
+    (5, 214),
+    (6, 215),
+    (7, 216),
+    (8, 217),
+    (9, 218),
+    (10, 219),
+    (11, 220)
+    (12, 221),
+    (13, 222),
+    (14, 223),
+    (15, 224),
+    (16, 225),
+    (17, 226),
+    (18, 227),
+    (19, 228),
+    (20, 229),
+    (21, 230),
+    (22, 231),
+    (23, 232),
+    (24, 233),
+    (25, 234),
+    (26, 235),
+    (27, 236),
+    (28, 237),
+    (29, 238),
+    (30, 239);
 
 INSERT INTO user
     (username, email, employeeNum, firstName, lastName, phoneNum) 
@@ -203,13 +234,13 @@ VALUES
     ('bsollars2','bsollars2@123-reg.co.uk',3,'Blaire', 'Sollars', 9175023923), 
     ('rpickaver3','rpickaver3@arizona.edu',4,'Raviv', 'Pickaver', 9175021092),
     ('rbernaldez4','rbernaldez4@wsj.com',5,'Riva','Bernaldez', 9175021274),
-    ('joejoeymulligan','joejoeymulligan@wsj.com',6,'Joe','Mulligan', 9175021937)
+    ('joejoeymulligan','joejoeymulligan@wsj.com',6,'Joe','Mulligan', 9175021937),
     ('fandadadayo','fzoom@gmail.com',7,'Fan','Zoom', 8603128888),
     ('luvfoodz','yumfood8@yahoo.com',8, 'Jamie','Moon',9175021234),
     ('pickleseater23','kelseyjo@gmail.com',9,'Kelsey', 'Jo', 3211409123), 
     ('randomperson11','randyliu3@gmail.com',10,'Randy', 'Liu', 3459871023),
     ('lizqueen','elizabethstraw99@gmail.com',11,'Elizabeth','Straw', 9175021774),
-    ('johnathon342','john342@wsj.com',12,'Johnathon','Miller', 9175022894)
+    ('johnathon342','john342@wsj.com',12,'Johnathon','Miller', 9175022894),
     ('emily88','iamemily88@marriott.com',13,'Emily','Stocks', 8609089123),
     ('howardtower','howardeatsfood@gmail.com',14, 'Howard','Toward', 8609489123),
     ('bennypenny','bpsoccer@gmail.com',15,'Ben', 'Peng', 9175023323), 
@@ -300,13 +331,41 @@ VALUES
 INSERT INTO pantry 
     (pantryID, userNam)
 VALUES 
-    (123, 'estack0'),
-    (345, 'rbernaldez4'),
-    (567, 'joeJoeyMulligan');
+    (1, 'estack0'),
+    (2, 'awellstead1'),
+    (3, 'bsollars2'), 
+    (4, 'rpickaver3'),
+    (5, 'rbernaldez4'),
+    (6, 'joejoeymulligan'),
+    (7, 'fandadadayo'),
+    (8, 'luvfoodz'),
+    (9, 'pickleseater23'), 
+    (10, 'randomperson11'),
+    (11, 'lizqueen'),
+    (12, 'johnathon342'),
+    (13, 'emily88'),
+    (14, 'howardtower'),
+    (15, 'bennypenny'), 
+    (16, 'ketchup912'),
+    (17, 'kellywillis34'),
+    (18, 'differentjoe'),
+    (19, 'iloverain3'),
+    (20, 'iwanttocook13'),
+    (21, 'badmintonpro34'), 
+    (22, 'isleepandeat'),
+    (23, 'cupcakes2023'),
+    (24, 'kruskalalgo99'),
+    (25, 'pollytriangle2'),
+    (26, 'itakenaps42'),
+    (27, 'icanswim2'), 
+    (28, 'holidayseasonyay'),
+    (29, 'user234'),
+    (30, 'user123456');
 
 INSERT INTO instructions 
     (instruID, steps, recipeNum)
 VALUES 
+<<<<<<< HEAD
     (1, 'step 1: boil potato with skin on for ten minutes', 1), 
     (2, 'step 2: cut potatoe in half', 1), 
     (3, 'step 3: spread butter on potato', 1), 
@@ -448,6 +507,44 @@ VALUES
  
 
 
+=======
+    (1, 'boil potato with skin on for ten minutes', 1), 
+    (2, 'cut potatoe in half', 1), 
+    (3, 'spread butter on potato', 1), 
+    (4, 'add salt and pepper', 1), 
+    (5,  'boil pasta for ten minutes', 2), 
+    (6, 'drain pasta', 2),
+    (7, 'add sauce to pot', 2), 
+    (8, 'add salt, pepper, and pasta to pot', 2), 
+    (9, 'get yougrt, granola, berries', 3), 
+    (10, 'put granola and berries on top of yogurt', 3),
+    (11, 'In a shallow bowl, combine butter, Worcestershire sauce and mustard', 4), 
+    (12, 'Place onions in another shallow bowl', 4), 
+    (13, 'Dip chicken in butter mixture, then coat with onions', 4), 
+    (14, 'Place in a greased 11x7-in. baking dish; drizzle with remaining butter mixture.', 4), 
+    (15, 'Bake, uncovered, at 400° for 20-25 minutes or until a thermometer reads 165°', 4),
+    (16, 'In a Dutch oven, combine milk, water and macaroni; bring to a boil over medium heat', 5), 
+    (17, 'Reduce heat and simmer until macaroni is tender and almost all the cooking liquid has been absorbed, 12-15 minutes, stirring frequently', 5), 
+    (18, 'Reduce heat to low; stir in cheeses until melted and season with salt and pepper', 5), 
+    (19, 'In a Dutch oven, cook pasta according to package directions, adding peas during the last 3 minutes of cooking; drain and return to pan', 6), 
+    (20, 'Stir in shrimp and sauce; heat through over medium heat, stirring occasionally and sprinkle with cheese', 6), 
+    (21, 'Bring a large pot of salted water to a boil. Add the plantains and boil until fork-tender, about 25 minutes. Drain the plantains, reserving ½ cup (125 mL) of the cooking water', 7), 
+    (22, 'Meanwhile, place the red onion in a small bowl and cover with the vinegar', 7), 
+    (23, 'Transfer the plantains to a medium bowl and add the reserved cooking water, 1 tablespoon (15 mL) of the olive oil, salt, and pepper. Mash the plantains to the consistency of mashed potatoes', 7), 
+    (24, 'In a medium frying pan, heat the vegetable oil over medium heat. Drain the red onions and discard the vinegar. Add the onions to the pan and cook, stirring often, until soft and translucent, about 5 minutes. Transfer to a plate', 7), 
+    (25, 'In the same pan (no need to wipe clean), heat the remaining 1 tablespoon (15 mL) olive oil over medium heat. Carefully crack the eggs into the pan, leaving space between each egg. Cook for 3 to 4 minutes, or until the whites are cooked and no longer translucent and the yolks are still runny. (I prefer the eggs over easy for this dish.)', 7), 
+    (26, 'To serve, divide the mashed plantain between plates and top with a fried egg, cooked onions, and a few slices of avocado. Season with salt and pepper to taste', 7), 
+    (27, 'Whisk together the flour, baking powder, and salt in a small bowl', 8), 
+    (28, 'In a medium bowl, whisk the egg and milk. Add the flour mixture and mix until just blended. The batter should be quite thin. Add the chopped vegetables to the batter and mix well', 8),
+    (29, 'Heat 1 tablespoon of the oil in a medium non- stick skillet over medium-high heat. Pour ¼ cup (60 ml) of the batter to make a 6-inch (15 cm) pancake. Cook until medium brown, about 1 minute. Place ¼ of the meat on top of the pancake and then flip the meat side down. Turn heat to low and cook until the bottom of the pancake is browned, the meat is thoroughly cooked, and the vegetables are tender—about 10 minutes. Repeat until the batter is used up', 8), 
+    (30, 'To serve, brush the pancake with mayonnaise and tonkatsu sauce, or soy sauce. Sprinkle with the bonito flakes and crumbled nori. Eat while piping hot', 8),
+    (31, 'Preheat the oven to 400°F. Set racks in the upper and lower thirds of the oven. Line two 13x18-inch baking sheets with parchment paper. In a small bowl, beat the egg with 1 tablespoon water. Prep the ingredients for the filling and set aside', 9), 
+    (31, 'If using a 17-ounce puff pastry package, roll each sheet to a 9x12-inch rectangle. Cut each piece lengthwise into eight 1 1/2-inch wide strips. Cut each strip crosswise into two pieces, about 4 1/2 inches long. You should have 32 pieces of pastry', 9), 
+    (32, 'Spread the center of each piece of pastry with 1/2 teaspoon mustard and top with 1/2 teaspoon sauerkraut. Brush one narrow end of the pastry with egg wash, add one piece of sausage, and roll to enclose. Return to parchment-lined baking sheets. Brush the top of each pastry with egg wash and sprinkle with caraway seeds, seam-side down. Chill in refrigerator for 15 minutes. Bake until golden brown and puffed, 23 to 27 minutes', 9), 
+    (33, 'In a 4-quart saucepan, combine the rice, chicken stock, and water. Cover and let sit overnight at cool room temperature (around or below 60°F) or in the refrigerator', 10),
+    (34, 'The next morning, add the ginger and the white parts of the green onions to the pot. Partially cover (a small gap is perfect to minimize evaporation and avoid a boil over) and bring to vigorous simmer over high heat. Lower the heat and gently simmer, partially covered, for 15 minutes, stirring occasionally and adjusting the heat as needed. When done, most of the liquid will have been absorbed (you’ll see little separation between the rice and liquid). Discard the ginger and green onions. Stir the pot, cover tightly, turn off the heat, and let rest for 10 minutes to finish thickening. The desired thickness of the porridge can vary according to taste; it can be rustic and thick, or elegant and thin, or somewhere in between. If needed, add a splash of water to thin or cook a little longer to thicken. Taste and season with the salt', 10), 
+    (35, 'When ready to serve, reheat the porridge to a simmer, then ladle into individual bowls. Garnish with sliced green onions and pepper', 10);
+>>>>>>> 73b53ddc8c1e0f0e184ef8e74790b795eb00801d
     
 INSERT INTO ingredient
     (ingredientID, name, quantity)
