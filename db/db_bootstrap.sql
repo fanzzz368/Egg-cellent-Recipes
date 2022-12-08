@@ -49,8 +49,6 @@ CREATE TABLE chef (
 CREATE TABLE recipe (
     recipeId Integer auto_increment PRIMARY KEY,
     name TEXT NOT NULL, 
-    numViews Integer, 
-    numLikes Integer, 
     cuisineNum Integer NOT NULL,
     servings Integer, 
     prepTime VARCHAR(255) NOT NULL, 
@@ -86,12 +84,6 @@ CREATE TABLE instructions (
     FOREIGN KEY (recipeNum) REFERENCES recipe(recipeId)
 );
 
-CREATE TABLE recipe_user (
-    userNam VARCHAR(255) UNIQUE, 
-    recipeNum Integer UNIQUE, 
-    FOREIGN KEY (userNam) REFERENCES user(username),
-    FOREIGN KEY (recipeNum) REFERENCES recipe(recipeId)
-);
 
 CREATE TABLE employee_rec (
     employeeNum Integer UNIQUE, 
@@ -107,12 +99,6 @@ CREATE TABLE ingredient_rec (
     FOREIGN KEY (recipeNum) REFERENCES recipe(recipeId)
 ); 
 
-CREATE TABLE recipe_instru (
-    instruNum Integer, 
-    recipeNum Integer UNIQUE, 
-    FOREIGN KEY (instruNum) REFERENCES instructions(instruID),
-    FOREIGN KEY (recipeNum) REFERENCES recipe(recipeId)
-);
 
 CREATE TABLE help_requests (
     ticketID Integer auto_increment PRIMARY KEY,
@@ -295,7 +281,7 @@ VALUES
     ('kcarlop', 'Kim', 'Carlo', 'kcarlop@opensource.org', 30, 1466920655);
 
 INSERT INTO recipe
-    (recipeId, name, numViews, numLikes, cuisineNum, servings, prepTime, cookTime, chefNam)
+    (recipeId, name, cuisineNum, servings, prepTime, cookTime, chefNam)
 VALUES 
     (1, 'baked potato', 0, 0, 103, 1, '2 minutes', '5 minutes', 'chef12pas'),
     (2, 'spaghetti', 6, 6, 132, 5, '5 minutes', '15 minutes', 'ilovecheesechef'),
@@ -503,8 +489,6 @@ VALUES
     (135, 'step 3: Fold in snow peas, edamame, soy sauce, and orange juice. Cook, tossing, until warmed through, about 1 minute. Add chicken mixture and toss to combine. Divide among plates, then top with reserved 2 Tbsp. scallions. Drizzle with chili or sesame oil, if using', 29), 
     (136, 'step 1: Preheat oven 425°F. Using kitchen scissors, trim the tips from the wings and discard. Cut the wings in half at the joint and place in a plastic bag with the cornstarch. Shake to coat, dusting off any excess cornstarch', 30), 
     (137, 'step 2: Place the oil, salt, five-spice and dried chili flakes in a large bowl. Add the wings and toss to coat. Place on a baking sheet lined with non-stick parchment paper and roast for 25–30 minutes or until crisp. Serve with chili sauce, chilies and chili mayonnaise', 30);
- 
-    
 INSERT INTO ingredient
     (ingredientID, name, quantity)
 VALUES 
@@ -678,7 +662,7 @@ VALUES
     (169, 'pickled chili'),
     (170, 'chili maynonnaise'),
     (171, 'potatoes'),
-    (172, 'granola')
+    (172, 'granola');
 
 INSERT INTO employee_rec
     (employeeNum, recipeNum)
@@ -990,4 +974,168 @@ VALUES
     (11, 2),
     (153, 2),
     (172, 3),
-    (127, 3)
+    (127, 3);
+
+
+INSERT into pantry_ingred 
+    (pantryNum, ingredientNum) 
+VALUES 
+    (1, 1),
+    (1, 2),
+    (1, 3),
+    (1, 4),
+    (1, 5),
+    (1, 6),
+    (1, 7),
+    (1, 8),
+    (1, 9),
+    (1, 10),
+    (2, 11),
+    (2, 12),
+    (2, 13),
+    (2, 14),
+    (2, 16),
+    (2, 17),
+    (2, 18),
+    (2, 19),
+    (2, 20),
+    (3, 21),
+    (3, 22),
+    (3, 23),
+    (3, 24),
+    (3, 25),
+    (3, 26),
+    (3, 27),
+    (3, 28),
+    (3, 29),
+    (3, 30),
+    (4, 31),
+    (4, 32),
+    (4, 33),
+    (4, 34),
+    (4, 35),
+    (4, 36),
+    (4, 37),
+    (4, 38),
+    (4, 39),
+    (4, 40),
+    (5, 41),
+    (5, 42),
+    (5, 43),
+    (5, 44),
+    (5, 45),
+    (5, 46),
+    (5, 47),
+    (5, 48),
+    (5, 49),
+    (5, 50),
+    (6, 51),
+    (6, 52),
+    (6, 53),
+    (6, 54),
+    (6, 55),
+    (6, 56),
+    (6, 57),
+    (6, 58),
+    (6, 59),
+    (6, 60),
+    (7, 61),
+    (7, 62),
+    (7, 63),
+    (7, 64),
+    (7, 65),
+    (7, 66),
+    (7, 67),
+    (7, 68),
+    (7, 69),
+    (7, 70),
+    (8, 71),
+    (8, 72),
+    (8, 73),
+    (8, 74),
+    (8, 75),
+    (8, 76),
+    (8, 77),
+    (8, 78),
+    (8, 79),
+    (8, 80),
+    (9, 91),
+    (9, 92),
+    (9, 93),
+    (9, 94),
+    (9, 95),
+    (9, 96),
+    (9, 97),
+    (9, 98),
+    (9, 99),
+    (9, 100),
+    (10, 101),
+    (10, 102),
+    (10, 103),
+    (10, 104),
+    (10, 105),
+    (10, 106),
+    (10, 107),
+    (10, 108),
+    (10, 109),
+    (10, 110),
+    (11, 111),
+    (11, 112),
+    (11, 113),
+    (11, 114),
+    (11, 115),
+    (11, 116),
+    (11, 117),
+    (11, 118),
+    (11, 119),
+    (12, 120),
+    (12, 121),
+    (12, 122),
+    (12, 123),
+    (12, 124),
+    (12, 125),
+    (12, 126),
+    (12, 127),
+    (12, 128),
+    (12, 129),
+    (12, 130),
+    (13, 131),
+    (13, 132),
+    (13, 133),
+    (13, 134),
+    (13, 135),
+    (13, 136),
+    (13, 137),
+    (13, 138),
+    (13, 139),
+    (13, 140),
+    (14, 141),
+    (14, 142),
+    (14, 143),
+    (14, 144),
+    (14, 145),
+    (14, 146),
+    (14, 147),
+    (14, 148),
+    (14, 149),
+    (15, 150),
+    (15, 151),
+    (15, 152),
+    (15, 153),
+    (15, 154),
+    (15, 155),
+    (15, 156),
+    (15, 157),
+    (15, 158),
+    (15, 159),
+    (16, 160),
+    (16, 161),
+    (16, 162),
+    (16, 163),
+    (16, 164),
+    (16, 165),
+    (16, 166),
+    (16, 167),
+    (16, 168),
+    (16, 169),
+    (16, 170);
