@@ -24,7 +24,7 @@ def get_user(username):
 @users.route('/<username>/pantry', methods=['GET'])
 def get_pantry(username):
     cursor = db.get_db().cursor()
-    cursor.execute('SELECT name, quantity FROM ingredient i JOIN pantry p ON i.pantryNum = p.pantryID where pantryNum = select pantryID from pantry where userNam = {0}'.format(username))
+    cursor.execute('SELECT i.name FROM ingredient i JOIN pantry_ingred pi on i.ingredientID = pi.ingredientNum where pi.pantryNum = (select p.pantryID from pantry_ingred pi JOIN pantry p ON pi.pantryNum = p.pantryID where p.userNam = {0}'.format(username))
     row_headers = [x[0] for x in cursor.description]
     json_data = []
     theData = cursor.fetchall()
@@ -40,8 +40,7 @@ def get_pantry(username):
 def input_ingredients():
    cursor = db.get_db().cursor()
    ingredient = request.form['ingredient']
-   quantity = request.form['quantity']
-   query = f'INSERT INTO pantry(name, quantity) VALUES(\"{ingredient}\", \"{quantity}\")'
+   query = f'INSERT INTO pantry(name, quantity) VALUES(\"{ingredient}\")'
    cursor.execute(query)
    return f'<h1>{ingredient} added to pantry.</h1>'
 
@@ -70,3 +69,18 @@ def recipes_ingred():
     the_response.status_code = 200
     the_response.mimetype = 'application/json'
     return the_response
+
+@users.route('/suggested_recipes')
+def suggested_recipes():
+    return f'<h1>these are the top ten suggested recipes</h1>'
+ 
+@users.route('/customer_service_form', methods = ['POST'])
+def cus_service_form():
+   cursor = db.get_db().cursor()
+   username = request.form['username']
+   email = request.form['email']
+   phoneNum = request.form['phone']
+   description = request.form['description']
+   query = f'INSERT INTO help_requests(user_username, user_phoneNum, user_email, help_needed) VALUES(\"{username}\", \"{phoneNum}\", \"{email}\", \"{description}\")'
+   cursor.execute(query)
+   return f'<h1>{username}, your request has been submitted.</h1>' 

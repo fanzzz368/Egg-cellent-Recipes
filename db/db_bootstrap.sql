@@ -1,9 +1,10 @@
 CREATE DATABASE egg_db;
-CREATE USER 'webapp'@'%' IDENTIFIED BY 'eggrecipes'; 
+USE egg_db; 
+-- CREATE USER 'webapp'@'%' IDENTIFIED BY 'eggrecipes'; 
 GRANT ALL PRIVILEGES ON egg_db.* TO 'webapp'@'%'; 
 FLUSH PRIVILEGES; 
 
-USE egg_db; 
+
 
 CREATE TABLE cuisine (
     name VARCHAR(255) NOT NULL, 
@@ -71,7 +72,7 @@ CREATE TABLE ingredient (
 
 -- updated pantry and ingredient to be many to many relationship
 CREATE TABLE pantry_ingred (
-    pantryNum Integer UNIQUE,
+    pantryNum Integer,
     ingredientNum Integer UNIQUE,
     FOREIGN KEY (pantryNum) REFERENCES pantry(pantryID),
     FOREIGN KEY (ingredientNum) REFERENCES ingredient(ingredientID)
@@ -79,7 +80,7 @@ CREATE TABLE pantry_ingred (
 
 CREATE TABLE instructions (
     instruID Integer auto_increment PRIMARY KEY, 
-    steps VARCHAR(255) NOT NULL, 
+    steps VARCHAR(1000) NOT NULL, 
     recipeNum Integer NOT NULL, 
     FOREIGN KEY (recipeNum) REFERENCES recipe(recipeId)
 );
@@ -94,7 +95,7 @@ CREATE TABLE employee_rec (
 
 CREATE TABLE ingredient_rec (
     ingredientNum Integer, 
-    recipeNum Integer UNIQUE, 
+    recipeNum Integer, 
     FOREIGN KEY (ingredientNum) REFERENCES ingredient(ingredientID),
     FOREIGN KEY (recipeNum) REFERENCES recipe(recipeId)
 ); 
@@ -102,11 +103,11 @@ CREATE TABLE ingredient_rec (
 
 CREATE TABLE help_requests (
     ticketID Integer auto_increment PRIMARY KEY,
-    employeeNum Integer UNIQUE,
+    employeeNum Integer,
     user_username VARCHAR(255) UNIQUE,
     user_phoneNum VARCHAR(255) UNIQUE,
     user_email VARCHAR(255) UNIQUE,
-    help_needed VARCHAR(255) UNIQUE
+    help_needed VARCHAR(255) UNIQUE,
     FOREIGN KEY (employeeNum) REFERENCES employee(employeeID)
 );
 
@@ -151,14 +152,14 @@ VALUES
     (2, 'Mandy', 'Kipling', 'customer service representative', 'mandykipling@gmail.com'),
     (3, 'Paige', 'Loveman', 'customer service representative', 'paigeloveman@gmail.com'),
     (4, 'Brian', 'Mul', 'customer service representative', 'brianmul@gmail.com'),
-    (5, 'Emily', 'Flower', 'customer service representative', 'emilyflower@gmail.com')
-    (6, 'Shuai', 'Ge', 'customer service representative', 'shuaige@gmail.com')
+    (5, 'Emily', 'Flower', 'customer service representative', 'emilyflower@gmail.com'),
+    (6, 'Shuai', 'Ge', 'customer service representative', 'shuaige@gmail.com'),
     (7, 'Billy', 'Bob', 'customer service representative', 'billybob@gmail.com'),
     (8, 'Amanda', 'Liu', 'customer service representative', 'amandaliu@gmail.com'),
     (9, 'Lily', 'Zhu', 'customer service representative', 'lilyzhu@gmail.com'),
     (10, 'Jeff', 'Anderson', 'customer service representative', 'jeffanderson@gmail.com'),
     (11, 'Cory', 'White', 'customer service representative', 'corywhite@gmail.com'),
-    (12, 'Lucy', 'Armstrong', 'customer service representative', 'lucyarmstrong@gmail.com')
+    (12, 'Lucy', 'Armstrong', 'customer service representative', 'lucyarmstrong@gmail.com'),
     (13, 'Harris', 'Batman', 'customer service representative', 'harrisbatman@gmail.com'),
     (14, 'Molly', 'Bear', 'customer service representative', 'mollybear@gmail.com'),
     (15, 'Peppa', 'Ping', 'customer service representative', 'peppaping@gmail.com'),
@@ -191,7 +192,7 @@ VALUES
     (8, 217),
     (9, 218),
     (10, 219),
-    (11, 220)
+    (11, 220),
     (12, 221),
     (13, 222),
     (14, 223),
@@ -238,7 +239,7 @@ VALUES
     ('badmintonpro34','iplaysports78@yahoo.com',21,'Jake', 'Spring', 9175223323), 
     ('isleepandeat','enjoylife4@gmail.com',22,'Tim', 'Zhou', 6782349886),
     ('cupcakes2023','youngkid49@gmail,com',23,'Lucy','Tree', 6782449886),
-    ('kruskalalgo99','ilovecs@yahoo.com',24,'Doug','Brow', 8607859993)
+    ('kruskalalgo99','ilovecs@yahoo.com',24,'Doug','Brow', 8607859993),
     ('pollytriangle2','pollyyes@gmail.com',25,'Polly','Triangle', 5679760912),
     ('itakenaps42','susanli3@gmail.com',26, 'Susan','Li',5679352789),
     ('icanswim2','b.mondo@northeastern.edu',27,'Blaire', 'Mondo', 8574371354), 
@@ -283,36 +284,36 @@ VALUES
 INSERT INTO recipe
     (recipeId, name, cuisineNum, servings, prepTime, cookTime, chefNam)
 VALUES 
-    (1, 'baked potato', 0, 0, 103, 1, '2 minutes', '5 minutes', 'chef12pas'),
-    (2, 'spaghetti', 6, 6, 132, 5, '5 minutes', '15 minutes', 'ilovecheesechef'),
-    (3, 'yogurt parfait', 100, 0, 103, 1, '5 minutes', '0 minutes','souflecheface'),
-    (4, 'tasty onion chicken', 12, 6, 103, 4, '10 minutes', '25 minutes','vkhidr9'), 
-    (5, 'one pot mac and cheese', 1000, 5, 1, 10, '5 minutes', '30 minutes', 'kcarlop'),
-    (6, 'shrimp pasta alfredo', 4929, 2109, 132, 4, '10 minutes', '15 minutes', 'sbogo'), 
-    (7, 'mashed plantains with fried eggs', 28991, 2124, 239, 2, '15 minutes', '15 minutes', 'sburletonl'),
-    (8, 'okonomiyaki pancakes with bonito flakes', 219, 133, 213, 1, '15 minutes', '15 minutes','vkhidr9'),
-    (9, 'pigs in a blanket with sauerkraut and mustard', 281, 29, 217, 4, '20 minutes', '25 minutes', 'glotonh'), 
-    (10, 'super simple overnight porridge', 3298, 3001, 215, 1, '10 minutes', '5 minutes', 'ichavezb'), 
-    (11, 'salmon teriyaki', 199, 129, 213, 2, '10 minutes', '15 minutes', 'dmassiea'),
-    (12, 'paneer butter masala', 208, 100, 218, 4, '10 minutes', '15 minutes', 'bmcclelland8'),
-    (13, 'pork wontons with sesame sauce', 1938, 199, 212, 4, '15 minutes', '20 minutes', 'clongmore0'), 
-    (14, 'classic chicken pho', 113988, 2891, 215, 5, '20 minutes', '30 minutes', 'qjerattn'),
-    (15, 'perfect fish tacos', 827, 283, 103, 2, '12 minutes', '15 minutes', 'kfedorskig'), 
-    (16, 'easy canned chickpea hummus', 10, 0, 103, 3, '5 minutes', '5 minutes', 'sburletonl'), 
-    (17, 'candy pork', 100, 10, 215, 5, '20 minutes', '20 minutes', 'jcharlwood5'),
-    (18, 'paneer and broccoli masala', 500, 234, 218, 5,'15 minutes', '25 minutes', 'msimanenko7'), 
-    (19, 'pongal', 134, 22, 218, 6, '20 minutes', '25 minutes', 'chef12pas'),
-    (20, 'summertime somen noodles', 10, 9, 213, 10, '25 minutes', '5 minutes','bmcclelland8'), 
-    (21, 'crispy taiwanese pork cutlets', 130, 67, 239, 'glotonh'), 
-    (22, 'chicken hamonado', 199, 20, 103, 5, '10 minutes', '15 minutes', 'iambroschf'),
-    (23, 'broiled tofu with miso', 93, 14, 212, 1, '10 minutes', '5 minutes', 'wsikoram'), 
-    (24, 'pasta alla gricia', 200, 30, 132, 4, '10 minutes', '15 minutes', 'kgrishaevj'), 
-    (25, 'quesadilla', 2847, 299, 234, 1, '10 minutes', '5 minutes', 'bmcclelland8'), 
-    (26, 'stir-fried egg and tomato', 29, 23, 103, 1, '5 minutes', '5 minutes', 'luvfoodz'),
-    (27, 'gyoza', 3298, 2983, 212, 2, '25 minutes', '25 minutes', 'ewiganc'), 
-    (28, 'pasta with ham, pea, and cream sauce', 14, 0, 132, 5, '15 minutes', '15 minutes'), 
-    (29, 'fried rice w/ chicken and broccolini', 56, 0, 212, 4, '15 minutes', '15 minutes', 'bfarnalli'), 
-    (30, 'cripsy chicken wings', 1990, 1800, 103, 5, '10 minutes', '15 minutes', 'sbogo');
+    (1, 'baked potato', 103, 1, '2 minutes', '5 minutes', 'chef12pas'),
+    (2, 'spaghetti', 132, 5, '5 minutes', '15 minutes', 'ilovecheesechef'),
+    (3, 'yogurt parfait', 103, 1, '5 minutes', '0 minutes','souflecheface'),
+    (4, 'tasty onion chicken', 103, 4, '10 minutes', '25 minutes','vkhidr9'), 
+    (5, 'one pot mac and cheese', 103, 10, '5 minutes', '30 minutes', 'kcarlop'),
+    (6, 'shrimp pasta alfredo', 132, 4, '10 minutes', '15 minutes', 'sbogo'), 
+    (7, 'mashed plantains with fried eggs', 239, 2, '15 minutes', '15 minutes', 'sburletonl'),
+    (8, 'okonomiyaki pancakes with bonito flakes', 213, 1, '15 minutes', '15 minutes','vkhidr9'),
+    (9, 'pigs in a blanket with sauerkraut and mustard', 217, 4, '20 minutes', '25 minutes', 'glotonh'), 
+    (10, 'super simple overnight porridge', 215, 1, '10 minutes', '5 minutes', 'ichavezb'), 
+    (11, 'salmon teriyaki', 213, 2, '10 minutes', '15 minutes', 'dmassiea'),
+    (12, 'paneer butter masala', 218, 4, '10 minutes', '15 minutes', 'bmcclelland8'),
+    (13, 'pork wontons with sesame sauce', 212, 4, '15 minutes', '20 minutes', 'clongmore0'), 
+    (14, 'classic chicken pho', 215, 5, '20 minutes', '30 minutes', 'qjerattn'),
+    (15, 'perfect fish tacos', 103, 2, '12 minutes', '15 minutes', 'kfedorskig'), 
+    (16, 'easy canned chickpea hummus', 103, 3, '5 minutes', '5 minutes', 'sburletonl'), 
+    (17, 'candy pork', 215, 5, '20 minutes', '20 minutes', 'jcharlwood5'),
+    (18, 'paneer and broccoli masala', 218, 5,'15 minutes', '25 minutes', 'msimanenko7'), 
+    (19, 'pongal', 218, 6, '20 minutes', '25 minutes', 'chef12pas'),
+    (20, 'summertime somen noodles', 213, 10, '25 minutes', '5 minutes','bmcclelland8'), 
+    (21, 'crispy taiwanese pork cutlets', 239, 2, '30 minutes', '20 minutes', 'glotonh'), 
+    (22, 'chicken hamonado', 103, 5, '10 minutes', '15 minutes', 'iambroschf'),
+    (23, 'broiled tofu with miso', 212, 1, '10 minutes', '5 minutes', 'wsikoram'), 
+    (24, 'pasta alla gricia', 132, 4, '10 minutes', '15 minutes', 'kgrishaevj'), 
+    (25, 'quesadilla', 234, 1, '10 minutes', '5 minutes', 'bmcclelland8'), 
+    (26, 'stir-fried egg and tomato', 103, 1, '5 minutes', '5 minutes', 'vkhidr9'),
+    (27, 'gyoza', 212, 2, '25 minutes', '25 minutes', 'ewiganc'), 
+    (28, 'pasta with ham, pea, and cream sauce', 132, 5, '15 minutes', '15 minutes', 'vkhidr9'), 
+    (29, 'fried rice w/ chicken and broccolini', 212, 4, '15 minutes', '15 minutes', 'bfarnalli'), 
+    (30, 'cripsy chicken wings', 103, 5, '10 minutes', '15 minutes', 'sbogo');
 
 INSERT INTO pantry 
     (pantryID, userNam)
@@ -382,7 +383,7 @@ VALUES
     (29, 'step 3: Heat 1 tablespoon of the oil in a medium non- stick skillet over medium-high heat. Pour ¼ cup (60 ml) of the batter to make a 6-inch (15 cm) pancake. Cook until medium brown, about 1 minute. Place ¼ of the meat on top of the pancake and then flip the meat side down. Turn heat to low and cook until the bottom of the pancake is browned, the meat is thoroughly cooked, and the vegetables are tender—about 10 minutes. Repeat until the batter is used up', 8), 
     (30, 'step 4: To serve, brush the pancake with mayonnaise and tonkatsu sauce, or soy sauce. Sprinkle with the bonito flakes and crumbled nori. Eat while piping hot', 8),
     (31, 'step 1: Preheat the oven to 400°F. Set racks in the upper and lower thirds of the oven. Line two 13x18-inch baking sheets with parchment paper. In a small bowl, beat the egg with 1 tablespoon water. Prep the ingredients for the filling and set aside', 9), 
-    (31, 'step 2: If using a 17-ounce puff pastry package, roll each sheet to a 9x12-inch rectangle. Cut each piece lengthwise into eight 1 1/2-inch wide strips. Cut each strip crosswise into two pieces, about 4 1/2 inches long. You should have 32 pieces of pastry', 9), 
+    (138, 'step 2: If using a 17-ounce puff pastry package, roll each sheet to a 9x12-inch rectangle. Cut each piece lengthwise into eight 1 1/2-inch wide strips. Cut each strip crosswise into two pieces, about 4 1/2 inches long. You should have 32 pieces of pastry', 9), 
     (32, 'step 3: Spread the center of each piece of pastry with 1/2 teaspoon mustard and top with 1/2 teaspoon sauerkraut. Brush one narrow end of the pastry with egg wash, add one piece of sausage, and roll to enclose. Return to parchment-lined baking sheets. Brush the top of each pastry with egg wash and sprinkle with caraway seeds, seam-side down. Chill in refrigerator for 15 minutes. Bake until golden brown and puffed, 23 to 27 minutes', 9), 
     (33, 'step 1: In a 4-quart saucepan, combine the rice, chicken stock, and water. Cover and let sit overnight at cool room temperature (around or below 60°F) or in the refrigerator', 10),
     (34, 'step 2: The next morning, add the ginger and the white parts of the green onions to the pot. Partially cover (a small gap is perfect to minimize evaporation and avoid a boil over) and bring to vigorous simmer over high heat. Lower the heat and gently simmer, partially covered, for 15 minutes, stirring occasionally and adjusting the heat as needed. When done, most of the liquid will have been absorbed (you’ll see little separation between the rice and liquid). Discard the ginger and green onions. Stir the pot, cover tightly, turn off the heat, and let rest for 10 minutes to finish thickening. The desired thickness of the porridge can vary according to taste; it can be rustic and thick, or elegant and thin, or somewhere in between. If needed, add a splash of water to thin or cook a little longer to thicken. Taste and season with the salt', 10), 
@@ -460,7 +461,7 @@ VALUES
     (106, 'step 3: Add the chicken and sauté until no longer pink, about 5 minutes', 22), 
     (107, 'step 4: Add the pineapple juice, sugar and soy sauce. Bring to a boil, reduce the heat to medium and simmer covered until the chicken is almost tender, about 20 minutes', 22),
     (108, 'step 5: Add the pineapple chunks with juice and continue to simmer until the sauce has reduced and the chicken is tender, about 20 minutes. Season to taste with salt', 22),
-    (109, 'step 6: Serve with steamed rice', 22)
+    (109, 'step 6: Serve with steamed rice', 22),
     (110, 'step 1: Pat tofu dry with paper towels, then wrap in fresh paper towels and put in a microwave-safe dish. Microwave at high power 30 seconds. Pour off any liquid and wrap tofu in fresh paper towels. Microwave 1 or 2 more times for 30 seconds each time, pouring off any liquid, until tofu feels firmer', 23),
     (111, 'step 2: Preheat broiler', 23),
     (112, 'step 3: Stir together miso, sugar, and sake in a small saucepan. (If miso mixture is very thick, stir in 1 tablespoon water.) Cook over medium-high heat, stirring, until bubbling, glossy, and the consistency of ketchup, 1 to 3 minutes', 23),
@@ -491,7 +492,7 @@ VALUES
     (137, 'step 2: Place the oil, salt, five-spice and dried chili flakes in a large bowl. Add the wings and toss to coat. Place on a baking sheet lined with non-stick parchment paper and roast for 25–30 minutes or until crisp. Serve with chili sauce, chilies and chili mayonnaise', 30);
 
 INSERT INTO ingredient
-    (ingredientID, name, quantity)
+    (ingredientID, name)
 VALUES 
     (1, 'onion'),
     (2, 'bell pepper'),
@@ -642,17 +643,17 @@ VALUES
     (148, 'english hothouse cucumber'),
     (149, 'pork shoulder'),
     (150, 'pork belly'),
-    (151, 'cabbage')
+    (151, 'cabbage'),
     (152, 'guanciale'),
     (153, 'rigatoni'),
-    (154, 'pecorino romano')
+    (154, 'pecorino romano'),
     (155, 'mozzarella cheese'),
     (156, 'squash blossoms'),
     (157, 'shiitake mushrooms'),
     (158, 'la-yu'),
     (159, 'farfalle'),
     (160, 'ham'),
-    (161, 'parmesan cheese')
+    (161, 'parmesan cheese'),
     (162, 'chicken cutlets'),
     (163, 'broccolini'),
     (164, 'snow peas'),
@@ -1011,7 +1012,6 @@ VALUES
     (3, 30),
     (4, 31),
     (4, 32),
-    (4, 33),
     (4, 34),
     (4, 35),
     (4, 36),
