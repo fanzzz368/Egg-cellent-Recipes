@@ -489,6 +489,7 @@ VALUES
     (135, 'step 3: Fold in snow peas, edamame, soy sauce, and orange juice. Cook, tossing, until warmed through, about 1 minute. Add chicken mixture and toss to combine. Divide among plates, then top with reserved 2 Tbsp. scallions. Drizzle with chili or sesame oil, if using', 29), 
     (136, 'step 1: Preheat oven 425°F. Using kitchen scissors, trim the tips from the wings and discard. Cut the wings in half at the joint and place in a plastic bag with the cornstarch. Shake to coat, dusting off any excess cornstarch', 30), 
     (137, 'step 2: Place the oil, salt, five-spice and dried chili flakes in a large bowl. Add the wings and toss to coat. Place on a baking sheet lined with non-stick parchment paper and roast for 25–30 minutes or until crisp. Serve with chili sauce, chilies and chili mayonnaise', 30);
+
 INSERT INTO ingredient
     (ingredientID, name, quantity)
 VALUES 
@@ -975,7 +976,6 @@ VALUES
     (153, 2),
     (172, 3),
     (127, 3);
-
 
 INSERT into pantry_ingred 
     (pantryNum, ingredientNum) 
