@@ -104,10 +104,10 @@ CREATE TABLE ingredient_rec (
 CREATE TABLE help_requests (
     ticketID Integer auto_increment PRIMARY KEY,
     employeeNum Integer,
-    user_username VARCHAR(255) UNIQUE,
-    user_phoneNum VARCHAR(255) UNIQUE,
-    user_email VARCHAR(255) UNIQUE,
-    help_needed VARCHAR(255) UNIQUE,
+    user_username VARCHAR(255),
+    user_phoneNum VARCHAR(255),
+    user_email VARCHAR(255),
+    help_needed VARCHAR(255),
     FOREIGN KEY (employeeNum) REFERENCES employee(employeeID)
 );
 

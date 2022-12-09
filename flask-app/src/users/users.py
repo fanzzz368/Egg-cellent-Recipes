@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify, make_response
+from flask import Blueprint, request, jsonify, make_response, current_app
 import json
 from src import db
 
@@ -20,11 +20,15 @@ def get_user(username):
     the_response.mimetype = 'application/json'
     return the_response
 
-# Get pantry for user with particular username
+# Get pantry for user with particular username -- it works
 @users.route('/<username>/pantry', methods=['GET'])
 def get_pantry(username):
     cursor = db.get_db().cursor()
-    cursor.execute('SELECT i.name FROM ingredient i JOIN pantry_ingred pi on i.ingredientID = pi.ingredientNum where pi.pantryNum = (select p.pantryID from pantry_ingred pi JOIN pantry p ON pi.pantryNum = p.pantryID where p.userNam = {0}'.format(username))
+    cursor.execute('SELECT i.name' + 
+    ' FROM ingredient i JOIN pantry_ingred pi ON i.ingredientID = pi.ingredientNum' +
+    ' WHERE pi.pantryNum = (SELECT p.pantryID FROM pantry_ingred pi JOIN pantry p ON pi.pantryNum = p.pantryID' + 
+    ' WHERE p.userNam = "{0}"'.format(username) + 
+    ' LIMIT 1)')
     row_headers = [x[0] for x in cursor.description]
     json_data = []
     theData = cursor.fetchall()
@@ -76,11 +80,13 @@ def suggested_recipes():
  
 @users.route('/customer_service_form', methods = ['POST'])
 def cus_service_form():
-   cursor = db.get_db().cursor()
-   username = request.form['username']
-   email = request.form['email']
-   phoneNum = request.form['phone']
-   description = request.form['description']
-   query = f'INSERT INTO help_requests(user_username, user_phoneNum, user_email, help_needed) VALUES(\"{username}\", \"{phoneNum}\", \"{email}\", \"{description}\")'
-   cursor.execute(query)
-   return f'<h1>{username}, your request has been submitted.</h1>' 
+    current_app.logger.info(request.form)
+    cursor = db.get_db().cursor()
+    username = request.form['username']
+    email = request.form['email']
+    phoneNum = request.form['phone']
+    description = request.form['description']
+    query = f'INSERT INTO help_requests(user_username, user_phoneNum, user_email, help_needed) VALUES(\"{username}\", \"{phoneNum}\", \"{email}\", \"{description}\")'
+    cursor.execute(query)
+    db.get_db().commit()
+    return f'<h1>{username}, your request has been submitted.</h1>' 
