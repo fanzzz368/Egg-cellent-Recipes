@@ -248,7 +248,7 @@ VALUES
     ('user123456','iloveramennoodles@gmail.com',30,'Tiffany','Mulligan', 3854670834);
 
 INSERT INTO chef 
-    (userName, firstName, lastName, email, employeeNum, phoneNum) 
+    (username, firstName, lastName, email, employeeNum, phoneNum)
 VALUES 
     ('chef12pas', 'Chris', 'Patterson', 'christpatterson@gmail.com', 1, 9175022093),
     ('ilovecheesechef', 'Mandy', 'Kipling', 'mandykipling@gmail.com', 2, 9175021298),

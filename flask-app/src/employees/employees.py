@@ -1,8 +1,6 @@
-from flask import Blueprint, request, jsonify, make_response
+from flask import Blueprint, jsonify, make_response
 import json
 from src import db
-from flask import request
-
 
 employees = Blueprint('employees', __name__)
 

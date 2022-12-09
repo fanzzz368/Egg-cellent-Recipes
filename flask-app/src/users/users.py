@@ -5,11 +5,11 @@ from src import db
 
 users = Blueprint('users', __name__)
 
-# Get user profile for user with particular username
-@users.route('/users/<username>', methods=['GET'])
+# Get user profile for user with particular username -- it works
+@users.route('/<username>', methods=['GET'])
 def get_user(username):
     cursor = db.get_db().cursor()
-    cursor.execute('select * from user where username = {0}'.format(username))
+    cursor.execute('select * from user where username = "{0}"'.format(username))
     row_headers = [x[0] for x in cursor.description]
     json_data = []
     theData = cursor.fetchall()
@@ -78,15 +78,16 @@ def recipes_ingred():
 def suggested_recipes():
     return f'<h1>these are the top ten suggested recipes</h1>'
  
+ # customer service form -- it works
 @users.route('/customer_service_form', methods = ['POST'])
 def cus_service_form():
     current_app.logger.info(request.form)
     cursor = db.get_db().cursor()
     username = request.form['username']
-    email = request.form['email']
     phoneNum = request.form['phone']
+    email = request.form['email']
     description = request.form['description']
     query = f'INSERT INTO help_requests(user_username, user_phoneNum, user_email, help_needed) VALUES(\"{username}\", \"{phoneNum}\", \"{email}\", \"{description}\")'
     cursor.execute(query)
     db.get_db().commit()
-    return f'<h1>{username}, your request has been submitted.</h1>' 
+    return f'<h1>Request submitted</h1>' 
