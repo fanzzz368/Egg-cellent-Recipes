@@ -40,11 +40,11 @@ def get_pantry(username):
     return the_response
 
 # Input ingredients into pantry
-@users.route("/<username>/input_ingredients", methods = ['POST'])
+@users.route("/input_ingredients", methods = ['POST'])
 def input_ingredients():
    cursor = db.get_db().cursor()
    ingredient = request.form['ingredient']
-   query = f'INSERT INTO pantry(name, quantity) VALUES(\"{ingredient}\")'
+   query = f'INSERT INTO pantry(name) VALUES(\"{ingredient}\")'
    cursor.execute(query)
    return f'<h1>{ingredient} added to pantry.</h1>'
 
