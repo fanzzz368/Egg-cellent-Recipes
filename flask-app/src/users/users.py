@@ -5,7 +5,7 @@ from src import db
 
 users = Blueprint('users', __name__)
 
-# Get user profile for user with particular username -- it works
+# Get user profile for user with particular username
 @users.route('/<username>', methods=['GET'])
 def get_user(username):
     cursor = db.get_db().cursor()
@@ -20,7 +20,7 @@ def get_user(username):
     the_response.mimetype = 'application/json'
     return the_response
 
-# Get pantry for user with particular username -- it works
+# Get pantry for user with particular username
 @users.route('/<username>/pantry', methods=['GET'])
 def get_pantry(username):
     cursor = db.get_db().cursor()
@@ -39,17 +39,7 @@ def get_pantry(username):
     the_response.mimetype = 'application/json'
     return the_response
 
-# Input ingredients into pantry
-#@users.route("/<username>/input_ingredients", methods = ['POST'])
-#def input_ingredients(username):
- #  cursor = db.get_db().cursor()
-  # ingredient = request.form['ingredient']
-   #query = f'INSERT INTO pantry_ingred(name) VALUES(\"{ingredient}\")'
-  # cursor.execute(query)
-   # return f'<h1>{ingredient} added to pantry.</h1>'
-
 # Suggested recipes based on what user has in pantry
-#match the ingredients that the user has entered with the ingredients in each recipe--> if same, return the recipe
 @users.route('/<username>/recipes_based_on_ingred', methods = ['GET'])
 def recipes_ingred(username):
     cursor = db.get_db().cursor()
@@ -68,12 +58,8 @@ def recipes_ingred(username):
     the_response.status_code = 200
     the_response.mimetype = 'application/json'
     return the_response
-
-@users.route('/suggested_recipes')
-def suggested_recipes():
-    return f'<h1>these are the top ten suggested recipes</h1>'
  
- # customer service form -- it works
+ # customer service form
 @users.route('/customer_service_form', methods = ['POST'])
 def cus_service_form():
     current_app.logger.info(request.form)
@@ -87,6 +73,7 @@ def cus_service_form():
     db.get_db().commit()
     return f'<h1>Request submitted</h1>' 
 
+# Get the entire list of ingredients we have in our database
 @users.route('/get_ingredients', methods = ['GET'])
 def get_ingredients_list(): 
     cursor = db.get_db().cursor()
@@ -101,7 +88,7 @@ def get_ingredients_list():
     the_response.mimetype = 'application/json'
     return the_response
 
-
+# Get recipe info for fish tacos
 @users.route('/get_fish_taco_recipe', methods = ['GET'])
 def get_fish_taco(): 
     cursor = db.get_db().cursor()
@@ -117,6 +104,7 @@ def get_fish_taco():
     the_response.mimetype = 'application/json'
     return the_response
 
+# Get the list of ingredients needed for fish tacos
 @users.route('/get_fish_taco_ingredients', methods = ['GET'])
 def get_fish_taco_ingr(): 
     cursor = db.get_db().cursor()
@@ -133,7 +121,7 @@ def get_fish_taco_ingr():
     the_response.mimetype = 'application/json'
     return the_response
 
-
+# Get the list of steps to follow for fish tacos
 @users.route('/get_fish_taco_steps', methods = ['GET'])
 def get_fish_taco_steps(): 
     cursor = db.get_db().cursor()
@@ -149,5 +137,3 @@ def get_fish_taco_steps():
     the_response.status_code = 200
     the_response.mimetype = 'application/json'
     return the_response
-
-

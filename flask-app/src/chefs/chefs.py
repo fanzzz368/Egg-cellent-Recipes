@@ -4,7 +4,7 @@ from src import db
 
 chefs = Blueprint('chefs', __name__)
 
-# get profile info for a chef with a particular username -- it works
+# get profile info for a chef with a particular username
 @chefs.route('/<username>', methods=['GET'])
 def chef_profile(username):
     cursor = db.get_db().cursor()
@@ -35,6 +35,7 @@ def chef_add_recipe():
     db.get_db().commit()
     return "success"
 
+# View all the recipes we have in our database
 @chefs.route('/view_recipes', methods=['GET'])
 def view_rec(): 
     cursor = db.get_db().cursor()
@@ -50,6 +51,7 @@ def view_rec():
     the_response.mimetype = 'application/json'
     return the_response
 
+# View all the cuisines we have in our database
 @chefs.route('/get_cuisines', methods=['GET'])
 def get_cusines(): 
     cursor = db.get_db().cursor()

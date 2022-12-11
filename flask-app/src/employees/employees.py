@@ -4,7 +4,7 @@ from src import db
 
 employees = Blueprint('employees', __name__)
 
-# get all info about an employee -- it works
+# get all info about an employee
 @employees.route('/<employeeID>', methods=['GET'])
 def get_employee(employeeID):
     cursor = db.get_db().cursor()
@@ -19,7 +19,7 @@ def get_employee(employeeID):
     the_response.mimetype = 'application/json'
     return the_response
 
-# get the help requests from customers -- it works
+# get the list of help requests
 @employees.route('/view_help_request', methods=['GET'])
 def get_help_request():
     cursor = db.get_db().cursor()
@@ -33,18 +33,3 @@ def get_help_request():
     the_response.status_code = 200
     the_response.mimetype = 'application/json'
     return the_response
-
-# @app.route('/')
-# def homepage():
-#    return f'<h1>Welcome to Egg-cellent Recipes!</h1>'
-
-@employees.route('/db_test')
-def db_testing():
-   cur = db.get_db().cursor()
-   cur.execute('select * from employee')
-   row_headers = [x[0] for x in cur.description]
-   json_data = []
-   theData = cur.fetchall()
-   for row in theData:
-       json_data.append(dict(zip(row_headers, row)))
-   return jsonify(json_data)

@@ -1,12 +1,7 @@
 CREATE DATABASE egg_db;
 USE egg_db;
-
--- SELECT user, host FROM mysql.user;
-
--- CREATE USER 'webapp' IDENTIFIED BY 'eggrecipes'; 
 GRANT ALL PRIVILEGES ON egg_db.* TO 'webapp'; 
 FLUSH PRIVILEGES; 
-
 
 
 CREATE TABLE cuisine (
@@ -73,7 +68,6 @@ CREATE TABLE ingredient (
     name VARCHAR(255) NOT NULL
 );
 
--- updated pantry and ingredient to be many to many relationship
 CREATE TABLE pantry_ingred (
     pantryNum Integer,
     ingredientNum Integer UNIQUE,
@@ -1176,4 +1170,3 @@ VALUES
     (28, 28, 'user234', 9453781208, 'basicname45@yahoo.com', 'How do I empty out my pantry'),
     (29, 29, 'sbogo', 9983509000, 'sbogo@list-manage.com', 'Can you add a top chef of the month category and make me the top chef?'),
     (30, 30, 'glotonh', 1509771140, 'glotonh@sbwire.com', 'How do I upload a recipe, I dont see the button');
-
