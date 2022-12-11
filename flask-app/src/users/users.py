@@ -54,11 +54,11 @@ def input_ingredients():
 def recipes_ingred(username):
     cursor = db.get_db().cursor()
     cursor.execute('SELECT DISTINCT r.name' +
-        'FROM recipe r JOIN ingredient_rec ir on r.recipeId = ir.recipeNum' +
-        'JOIN ingredient i on ir.ingredientNum = i.ingredientId' +
-        'JOIN pantry_ingred pi on i.ingredientID = pi.ingredientNum' +
-        'JOIN pantry p on pi.pantryNum = p.pantryID' +
-        'WHERE pi.ingredientNum = ir.ingredientNum AND p.userNam = "{0}"'.format(username))
+        ' FROM recipe r JOIN ingredient_rec ir on r.recipeId = ir.recipeNum' +
+        ' JOIN ingredient i on ir.ingredientNum = i.ingredientId' +
+        ' JOIN pantry_ingred pi on i.ingredientID = pi.ingredientNum' +
+        ' JOIN pantry p on pi.pantryNum = p.pantryID' +
+        ' WHERE pi.ingredientNum = ir.ingredientNum AND p.userNam = "{0}"'.format(username))
     row_headers = [x[0] for x in cursor.description]
     json_data = []
     theData = cursor.fetchall()
