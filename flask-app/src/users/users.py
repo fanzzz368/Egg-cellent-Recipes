@@ -95,7 +95,7 @@ def cus_service_form():
 @users.route('/get_ingredients', methods = ['GET'])
 def get_ingredients_list(): 
     cursor = db.get_db().cursor()
-    cursor.execute('select name from ingredient')
+    cursor.execute('select ingredientID as value, name as label from ingredient')
     row_headers = [x[0] for x in cursor.description]
     json_data = []
     theData = cursor.fetchall()
