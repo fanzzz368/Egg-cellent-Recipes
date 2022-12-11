@@ -51,19 +51,14 @@ def input_ingredients():
 # Suggested recipes based on what user has in pantry
 #match the ingredients that the user has entered with the ingredients in each recipe--> if same, return the recipe
 @users.route('/<username>/recipes_based_on_ingred', methods = ['GET'])
-def recipes_ingred():
+def recipes_ingred(username):
     cursor = db.get_db().cursor()
-    query = '''
-    SELECT r.name
-    FROM recipe r JOIN ingredient_rec ir on r.recipeId = ir.recipeNum
-    WHERE (SELECT COUNT(i.ingredientId) as numMatches
-            FROM ingredient_rec ir JOIN ingredient i on ir.ingredientNum = i.ingredientId
-            JOIN pantry_ingred pi on i.pantryNum = pi.pantryNum
-            JOIN pantry p on pi.pantryNum = p.pantryID
-            WHERE i.ingredientId = ir.ingredientNum)
-    ORDER BY numMatches DESC
-    '''
-    cursor.execute(query)
+    cursor.execute('SELECT DISTINCT r.name' +
+        'FROM recipe r JOIN ingredient_rec ir on r.recipeId = ir.recipeNum' +
+        'JOIN ingredient i on ir.ingredientNum = i.ingredientId' +
+        'JOIN pantry_ingred pi on i.ingredientID = pi.ingredientNum' +
+        'JOIN pantry p on pi.pantryNum = p.pantryID' +
+        'WHERE pi.ingredientNum = ir.ingredientNum AND p.userNam = "{0}"'.format(username))
     row_headers = [x[0] for x in cursor.description]
     json_data = []
     theData = cursor.fetchall()
