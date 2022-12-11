@@ -20,7 +20,7 @@ def chef_profile(username):
     return the_response
 
 # post a recipe
-@chefs.route('/add_recipe', methods=['POST'])
+@chefs.route('/add_recipe', methods = ['POST'])
 def chef_add_recipe():
     current_app.logger.info(request.form)
     cursor = db.get_db().cursor()
