@@ -102,3 +102,52 @@ def get_ingredients_list():
     return the_response
 
 
+@users.route('/get_fish_taco_recipe', methods = ['GET'])
+def get_fish_taco(): 
+    cursor = db.get_db().cursor()
+    cursor.execute('select * from recipe' + 
+    ' Where name = "perfect fish tacos"')
+    row_headers = [x[0] for x in cursor.description]
+    json_data = []
+    theData = cursor.fetchall()
+    for row in theData:
+        json_data.append(dict(zip(row_headers, row)))
+    the_response = make_response(jsonify(json_data))
+    the_response.status_code = 200
+    the_response.mimetype = 'application/json'
+    return the_response
+
+@users.route('/get_fish_taco_ingredients', methods = ['GET'])
+def get_fish_taco_ingr(): 
+    cursor = db.get_db().cursor()
+    cursor.execute('select i.name from ingredient i JOIN ingredient_rec ir on i.ingredientId = ir.ingredientNum' + 
+    ' JOIN recipe r on ir.recipeNum = r.recipeId' +
+    ' Where r.name = "perfect fish tacos"')
+    row_headers = [x[0] for x in cursor.description]
+    json_data = []
+    theData = cursor.fetchall()
+    for row in theData:
+        json_data.append(dict(zip(row_headers, row)))
+    the_response = make_response(jsonify(json_data))
+    the_response.status_code = 200
+    the_response.mimetype = 'application/json'
+    return the_response
+
+
+@users.route('/get_fish_taco_steps', methods = ['GET'])
+def get_fish_taco_steps(): 
+    cursor = db.get_db().cursor()
+    cursor.execute('select steps from instructions i ' + 
+    ' JOIN recipe r on i.recipeNum = r.recipeId' +  
+    ' Where r.name = "perfect fish tacos"')
+    row_headers = [x[0] for x in cursor.description]
+    json_data = []
+    theData = cursor.fetchall()
+    for row in theData:
+        json_data.append(dict(zip(row_headers, row)))
+    the_response = make_response(jsonify(json_data))
+    the_response.status_code = 200
+    the_response.mimetype = 'application/json'
+    return the_response
+
+
