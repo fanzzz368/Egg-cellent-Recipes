@@ -1,7 +1,10 @@
 CREATE DATABASE egg_db;
-USE egg_db; 
--- CREATE USER 'webapp'@'%' IDENTIFIED BY 'eggrecipes'; 
-GRANT ALL PRIVILEGES ON egg_db.* TO 'webapp'@'%'; 
+USE egg_db;
+
+-- SELECT user, host FROM mysql.user;
+
+-- CREATE USER 'webapp' IDENTIFIED BY 'eggrecipes'; 
+GRANT ALL PRIVILEGES ON egg_db.* TO 'webapp'; 
 FLUSH PRIVILEGES; 
 
 

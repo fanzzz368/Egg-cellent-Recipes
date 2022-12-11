@@ -40,13 +40,13 @@ def get_pantry(username):
     return the_response
 
 # Input ingredients into pantry
-@users.route("/input_ingredients", methods = ['POST'])
-def input_ingredients():
-   cursor = db.get_db().cursor()
-   ingredient = request.form['ingredient']
-   query = f'INSERT INTO pantry(name) VALUES(\"{ingredient}\")'
-   cursor.execute(query)
-   return f'<h1>{ingredient} added to pantry.</h1>'
+#@users.route("/<username>/input_ingredients", methods = ['POST'])
+#def input_ingredients(username):
+ #  cursor = db.get_db().cursor()
+  # ingredient = request.form['ingredient']
+   #query = f'INSERT INTO pantry_ingred(name) VALUES(\"{ingredient}\")'
+  # cursor.execute(query)
+   # return f'<h1>{ingredient} added to pantry.</h1>'
 
 # Suggested recipes based on what user has in pantry
 #match the ingredients that the user has entered with the ingredients in each recipe--> if same, return the recipe
@@ -100,3 +100,5 @@ def get_ingredients_list():
     the_response.status_code = 200
     the_response.mimetype = 'application/json'
     return the_response
+
+

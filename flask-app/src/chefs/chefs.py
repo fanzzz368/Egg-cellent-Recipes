@@ -24,16 +24,48 @@ def chef_profile(username):
 def chef_add_recipe():
     current_app.logger.info(request.form)
     cursor = db.get_db().cursor()
-    name = request.form['nuid']
-    cuisineNum = request.form['cusineNum']
+    name = request.form['name']
+    cuisineNum = request.form['cuisineNum']
     servings = request.form['servings']
     prepTime = request.form['prepTime']
     cookTime = request.form['cookTime']
     chefNam = request.form['chefNam']
-    query = f'INSERT INTO chef(name, cuisineNum, servings, prepTime, cookTime, chefNam) VALUES(\"{name}\", \"{cuisineNum}\", \"{servings}\", \"{prepTime}\", \"{cookTime}\", \"{chefNam}\")'
+    query = f'INSERT INTO recipe(name, cuisineNum, servings, prepTime, cookTime, chefNam) VALUES(\"{name}\", \"{cuisineNum}\", \"{servings}\", \"{prepTime}\", \"{cookTime}\", \"{chefNam}\")'
     cursor.execute(query)
     db.get_db().commit()
     return "success"
+
+@chefs.route('/view_recipes', methods=['GET'])
+def view_rec(): 
+    cursor = db.get_db().cursor()
+    cursor.execute('SELECT *' + 
+    ' FROM recipe')
+    row_headers = [x[0] for x in cursor.description]
+    json_data = []
+    theData = cursor.fetchall()
+    for row in theData:
+        json_data.append(dict(zip(row_headers, row)))
+    the_response = make_response(jsonify(json_data))
+    the_response.status_code = 200
+    the_response.mimetype = 'application/json'
+    return the_response
+
+@chefs.route('/get_cuisines', methods=['GET'])
+def get_cusines(): 
+    cursor = db.get_db().cursor()
+    cursor.execute('select cuisineID as value, name as label from cuisine')
+    row_headers = [x[0] for x in cursor.description]
+    json_data = []
+    theData = cursor.fetchall()
+    for row in theData:
+        json_data.append(dict(zip(row_headers, row)))
+    the_response = make_response(jsonify(json_data))
+    the_response.status_code = 200
+    the_response.mimetype = 'application/json'
+    return the_response
+
+
+
 
 
 
