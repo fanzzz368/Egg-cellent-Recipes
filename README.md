@@ -1,3 +1,12 @@
+# Project Overview
+Egg-cellent Recipes is an application built using REST API and MySQL.  
+
+
+# Instructions
+<img width="439" alt="Screenshot 2022-12-11 at 7 43 50 PM" src="https://user-images.githubusercontent.com/91427854/206939309-3d836788-6ef0-4b17-a47e-f2fad2e7ef14.png">
+
+
+
 # MySQL + Flask Boilerplate Project
 
 This repo contains a boilerplate setup for spinning up 2 docker containers: 
