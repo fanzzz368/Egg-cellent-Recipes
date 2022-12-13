@@ -1,5 +1,5 @@
 # Project Overview
-Egg-cellent Recipes is an application built using REST API and MySQL. It consists of three personas: users, chefs, and employees. Users could view the ingredients in their pantry, view the recipe of the week, and submit a help request form. Chefs could upload recipes to share with others and submit a help request form as well. Employees could view the help requests sent by users and chefs.
+Egg-cellent Recipes is an application built using REST API and MySQL. It consists of three personas: users, chefs, and employees. Users could view the ingredients in their pantry, view the recipe of the week, and submit a help request form. Chefs could upload recipes to share with others and submit a help request form as well while employees could view the help requests sent by users and chefs.
 
 Demo video: https://youtu.be/UhcU5ETnv4E 
  
