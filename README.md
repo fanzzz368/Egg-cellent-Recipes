@@ -30,6 +30,7 @@ Chef homepage:
 Employee homepage:
 
 <img width="419" alt="Screenshot 2022-12-13 at 4 16 52 PM" src="https://user-images.githubusercontent.com/91427854/207445346-3e2f3e16-08da-4703-9da9-b2e7a10de7eb.png">
+
 - Select "View Help Forms" to see all the help requests users and chefs have submitted in the past
 
 
