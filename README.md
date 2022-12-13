@@ -11,16 +11,20 @@ Demo video: https://youtu.be/UhcU5ETnv4E
 User homepage:
 
 <img width="419" alt="Screenshot 2022-12-13 at 4 15 43 PM" src="https://user-images.githubusercontent.com/91427854/207445156-c1648dae-cbdc-4a4a-9864-0c87445c4d5d.png">
+- Select "User Pantry" to view the ingredients in each user's pantry
+- Select "Recipe of the Week" to view the top recipe chosen weekly
+- Select "Help Request Form" to submit a help request to an employee
 
 Chef homepage:
 
 <img width="421" alt="Screenshot 2022-12-13 at 4 16 27 PM" src="https://user-images.githubusercontent.com/91427854/207445281-26019314-2ffc-4c28-b3f3-51a4c012bb0a.png">
-
+- Select "Add Recipe" to upload a recipe
+- Select "Help Request Form" to submit a help request to an employee
 
 Employee homepage:
 
 <img width="419" alt="Screenshot 2022-12-13 at 4 16 52 PM" src="https://user-images.githubusercontent.com/91427854/207445346-3e2f3e16-08da-4703-9da9-b2e7a10de7eb.png">
-
+- Select "View Help Forms" to see all the help requests users and chefs have submitted in the past
 
 
 # MySQL + Flask Boilerplate Project
